@@ -28,7 +28,7 @@
         var fOpenId = LsyStorage.getItem('fOpenId');
 
         if(fOpenId) {
-            loginUrl = loginUrl + "&code=" + fOpenId
+            loginUrl = loginUrl + "&from=" + fOpenId
         }
         $.get(loginUrl, function(data){
 
