@@ -26,18 +26,18 @@ $(function(){
             $(".load").hide();
             swiperTipsFn()
 
-            var token = LsyStorage.getItem('openId') || getUriParam("openId");
-            var fOpenId = getUriParam('from');
+            var token = LsyStorage.getItem('token') || getUriParam("token");
+            var fOpenId = getUriParam('ff');
 
             if(fOpenId) {
-                LsyStorage.setItem('fOpenId', fOpenId);
+                LsyStorage.setItem('ffOpenId', fOpenId);
             }
 
             if(!token) {
                 // 获取不到token，第一次登陆，去认证
                 login(redirect_uri);
             } else {
-                LsyStorage.setItem('openId', token);
+                LsyStorage.setItem('token', token);
                 fx()
                 getInit()
             }
@@ -105,7 +105,7 @@ $(function(){
     function getInit() {
         var picDefault = "static/images/fruit_tree/face_default.png";
         // 我的果树信息
-        $.get(baseUrl+"/api.php?op=game&act=index&token="+ LsyStorage.getItem('openId'),{}, function(data){
+        $.get(baseUrl+"/api.php?op=game&act=index&token="+ LsyStorage.getItem('token'),{}, function(data){
 
             if(data.code==1) {
                 var friendList = data.friend;
@@ -201,7 +201,7 @@ $(function(){
         },'json');
 
         // 好友列表
-        $.get(baseUrl+"/api.php?op=game&act=flist&token="+ LsyStorage.getItem('openId'),{}, function(data){
+        $.get(baseUrl+"/api.php?op=game&act=flist&token="+ LsyStorage.getItem('token'),{}, function(data){
             var list = data.data;
             var str = '';
             for(var k=0; k<list.length; k++) {
@@ -237,7 +237,7 @@ $(function(){
             $(".fruits-box").addClass("downFruit")
         }, 1400);
             // 接口，摘果子
-            $.get(baseUrl+"/api.php?op=game&act=addFruit&token="+ LsyStorage.getItem('openId'),{}, function(data){
+            $.get(baseUrl+"/api.php?op=game&act=addFruit&token="+ LsyStorage.getItem('token'),{}, function(data){
 
                 var all = Number($(".js_fruit_num").html())
                 $(".js_fruit_num").html(Number(data.num + all));
@@ -263,14 +263,14 @@ $(function(){
     // 偷好友金果
     $(document).on("click", ".js_steal_list a", function(){
         if($(this).hasClass("js_steal_btn")) {
-            var fOpenId = $(this).data("val");
+            var ffOpenId = $(this).data("val");
 
             $(this).removeClass("js_steal_btn").siblings("i").remove()
             $(".fix-tool").animate({
                 bottom: "-100%"
             }, 500);
             $(".steat_result").fadeIn();
-            $.get(baseUrl+"/api.php?op=game&act=steal&fopenid="+ fOpenId+"&token="+ LsyStorage.getItem('openId'),{}, function(data){
+            $.get(baseUrl+"/api.php?op=game&act=steal&fopenid="+ ffOpenId+"&token="+ LsyStorage.getItem('token'),{}, function(data){
                 var stealNum = data.num
                 $(".js_steal_num").html(stealNum);
                 var all = Number($(".js_fruit_num").html())

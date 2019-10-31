@@ -23,12 +23,17 @@
 <script src="static/js/storages.js"></script>
 <script>
     $(function(){
-        var code = getUriParam("code");
-        var loginUrl = "/api.php?op=game&act=login&code=" + code;
-        var fOpenId = LsyStorage.getItem('fOpenId');
+        var code = getUriParam("code");       
+        var loginUrl = "/api.php?op=game&act=login&code=" + code;        
+        var fOpenId = LsyStorage.getItem('ffOpenId');
+
+        alert("code:"+code)
+        alert("loginUrl1:"+loginUrl)
+        alert("fOpenId:"+fOpenId)
 
         if(fOpenId) {
-            loginUrl = loginUrl + "&from=" + fOpenId
+            loginUrl = loginUrl + "&ff=" + fOpenId
+            alert("loginUrl:"+loginUrl)
         }
         alert(1)
         $.get(loginUrl, function(data){
@@ -41,7 +46,7 @@
                 $(".js_login").on("click", function(){
                     alert(4)
                     alert("http://g.ihuqu.com/wx/index.html?openId=" + result.openid)
-                    window.location.href = "http://g.ihuqu.com/wx/index.html?openId=" + result.openid;
+                    window.location.href = "http://g.ihuqu.com/wx/index.html?token=" + result.openid;
                 })
             }
 
