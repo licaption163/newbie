@@ -1,0 +1,845 @@
+*{
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz-tap-highlight-color :rgba(0, 0, 0, 0);
+}
+body {
+  background:#111;
+}
+img {
+  vertical-align: top;
+  width: 100%;
+  height: 100%;
+}
+a {
+  text-decoration: none;
+}
+ul, li {
+  list-style: none;
+}
+.txtElip{ text-overflow:ellipsis; white-space:nowrap; overflow:hidden; }
+.clearfix:after{ display:block; content:""; clear:both;}
+.clearfix{ zoom:1;}/* 清浮动的兼容性写法*/
+.fl {
+  float: left;
+}
+.fr {
+  float: right
+}
+.txt-c {
+  text-align: center
+}
+.container {
+  position: relative;
+  padding-top: 0.04rem;
+  width: 100vw;
+  height: 100vh;
+  background: url(../images/fruit_tree/page_bg.png) no-repeat top center #AA4F1E;
+  background-size: 100%;
+  box-sizing: border-box;
+}
+/* t头部 */
+.header {
+  position: relative;
+  margin: 0 auto 0.56rem;
+  padding: 0.08rem 0.16rem;
+  width: 3.56rem;
+  height: 0.46rem;
+  background: #FFF9EB;
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: #B03914;
+  font-size: 14px;
+  line-height: 0.28rem;
+}
+.header .icon-left, .header .icon-right {
+  position: absolute;
+  top: -0.04rem;
+  width: 0.17rem;
+  height: 0.2rem;
+  background: url(../images/fruit_tree/gouzi.png) no-repeat left bottom;
+  background-size: 100%;
+}
+.header .icon-left {
+  left: 2px;
+}
+.header .icon-right {
+  right: 2px
+}
+.header .face_pic {
+  padding-top: 0.04rem;
+  width: 0.22rem;
+  height: 0.26rem;
+  box-sizing: border-box; 
+}
+.header .face_pic img {
+  border-radius: 50%;
+}
+.header .name {
+  margin-right: 0.2rem;
+  position: relative;
+  padding: 0 0.1rem;
+  width: 0.6rem;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.header .name:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 2px;
+  bottom: 2px;
+  width: 1px;
+  border-right: 1px dashed #BB3911;
+}
+.header .fruit_num {
+  width: 0.9rem;
+  height: 100%;
+}
+.header .btn-exchange {
+  width: 0.8rem;
+  height: 100%;
+  background: url(../images/fruit_tree/icon_btn.png) no-repeat center;
+  background-size: 100%;
+  text-align: center;
+  color: #B03914;
+}
+/* 弹框 */
+.tips-box {
+  margin-bottom: 0.36rem;
+  height: 0.32rem;
+}
+.play-btn {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -0.95rem;
+  margin-top: -0.68rem;
+  padding-top: 0.52rem;
+  width: 1.9rem;
+  height: 1.36rem;
+  background: url(../images/fruit_tree/icon_loading_tree.png) no-repeat top center;
+  background-size: 0.4rem;
+  box-sizing: border-box;
+  font-size: 0
+}
+.play-btn a {
+  display: inline-block;
+  width: 100%;
+  height: 0.52rem;
+  background: url(../images/fruit_tree/bg_play.png) no-repeat top center;
+  background-size: 100%;
+  box-sizing: border-box;
+}
+.tips {
+  margin: 0 auto;
+  padding: 0 0.24rem;
+  max-width: 3rem;
+  height: 0.32rem;
+  border-radius: 1.05rem;
+  line-height: 0.32rem;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 12px;
+  background: rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+/* 树 */
+.tree-box {
+  position: relative;
+  width: 100%;
+  height: 2.16rem;
+  text-align: center;
+  background: url(../images/fruit_tree/tree_bottom.png) no-repeat bottom center;
+  background-size: 0.15rem;
+  box-sizing: border-box;
+}
+.fruits-box {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  /* top: 0.4rem */
+  margin-left: -0.3rem;
+  width: 0.6rem;
+  height: 0.2rem;
+  text-align: center;
+  transform: scale(0);
+  opacity: 0;
+  /* transform: scale(1);
+  opacity: 1; */
+}
+.fruits-box span {
+  vertical-align: top;
+  width: 0.2rem;
+  height: 0.2rem;
+  background: url(../images/fruit_tree/icon_fruit.png) no-repeat bottom center;
+  background-size: 100%;
+}
+.tree-top {
+  width: 1.3rem;
+  height: 1.52rem;
+}
+.tree_tips {
+  position:absolute;
+  left: 0.26rem;
+  top: -0.14rem;
+  padding: 0.08rem 0.16rem;
+  width: 1.46rem;
+  min-height: 0.56rem;
+  box-sizing: border-box;
+  line-height: 0.2rem;
+  color: #B03914;
+  font-size: 14px;
+  background: -webkit-linear-gradient(#fbe1a6, #fcd3a8);
+  background: -o-linear-gradient(#fbe1a6, #fcd3a8);
+  background: -moz-linear-gradient(#fbe1a6, #fcd3a8);
+  background: linear-gradient(#fbe1a6, #fcd3a8);
+  border-radius: 0.28rem 0.28rem 0 0.28rem;
+}
+.indicator {
+  position: absolute;
+  left: 50%;
+  margin-left: -0.83rem;
+  bottom: 0;
+  padding-top: 0.12rem;
+  background: url(../images/fruit_tree/bg_indicator.png) no-repeat center;
+  background-size: 100%;
+  box-sizing: border-box;
+  width: 1.66rem;
+  height: 1.26rem;
+}
+.indicator .num-box {
+  text-align: center;
+  height: 0.5rem;
+}
+.indicator .num {
+  vertical-align: top;
+  display: inline-block;
+  padding-right: 0.2rem;
+  height: 0.5rem;
+  line-height: 0.5rem;
+  color: #F0962B;
+  font-size: 30px;
+  background: url(../images/fruit_tree/icon_fruit.png) no-repeat right 70%;
+  background-size: 0.2rem;
+}
+.indicator .max {
+  margin: 0 auto;
+  width: 0.92rem;
+  height: 0.26rem;
+  line-height: 0.26rem;
+  color: #E79229;
+  font-size: 12px;
+  background: #FFE7BB;
+  border-radius: 0.13rem;
+}
+/* 收金果 */
+.get_fruit-box {
+  margin-top: -0.04rem;
+  margin-bottom: 0.4rem;
+  position: relative;
+  padding: 0 0.12rem;
+  width: 100%;
+  height: 0.58rem;
+  box-sizing: border-box;
+}
+.other-fruit {
+  margin-top: -0.04rem;
+  position: relative;
+  margin-right: 0.28rem;
+  width: 0.52rem;
+  height: 100%;
+  background: url(../images/fruit_tree/icon_fruit1.png) no-repeat top center;
+  background-size: 100%;
+}
+.other-fruit .btn {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0.16rem;
+  border-radius: 0.07rem;
+  text-align: center;
+  color: #fff;
+  line-height: 0.16rem;
+  font-size: 12px;
+  background:linear-gradient(90deg,#CC762A 0%,#D07B27 100%);
+  box-shadow:0px 1px 5px 0px #612B0E;
+}
+.btn-get-fruit {
+  position: relative;
+  width: 1.9rem;
+  height: 0.52rem;
+  line-height: 0.52rem;
+  background: url(../images/fruit_tree/btn_get_friut2.png) no-repeat center;
+  background-size: 100%;
+  overflow: hidden;
+  border-radius: 0.26rem;
+  color: #000;
+  font-size: 14px;
+  text-align: center;
+}
+.btn-get-fruit.active {
+  background: url(../images/fruit_tree/btn_get_friut.png) no-repeat center;
+  background-size: 100%;
+}
+.btn-get-fruit.active:before { 
+  content: ""; 
+  position: absolute; 
+  width: 50px;
+  height: 100%; 
+  top: 0; 
+  left: -150px; 
+  overflow: hidden;
+  background: -moz-linear-gradient(left, rgba(255,255,255,0)0, rgba(255,255,255,.2)50%, rgba(255,255,255,0)100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255,255,255,0)), color-stop(50%, rgba(255,255,255,.2)), color-stop(100%, rgba(255,255,255,0)));
+  background: -webkit-linear-gradient(left, rgba(255,255,255,0)0, rgba(255,255,255,.2)50%, rgba(255,255,255,0)100%);
+  background: -o-linear-gradient(left, rgba(255,255,255,0)0, rgba(255,255,255,.2)50%, rgba(255,255,255,0)100%);
+  -webkit-transform: skewX(-25deg);
+  -moz-transform: skewX(-25deg);
+  -webkit-animation-name: toRight; /*关键帧名称*/
+  -webkit-animation-timing-function: ease-in-out; /*动画的速度曲线*/
+  -webkit-animation-iteration-count: infinite;  /*动画播放的次数*/
+  -webkit-animation-duration: 10s; /*动画所花费的时间*/
+  z-index: 10;
+}
+
+.hand {
+  position: absolute;
+  right: 0.7rem;
+  top: 0.3rem;
+  width: 0.82rem;
+  height: 0.63rem;
+  background: url(../images/fruit_tree/icon_hand.png) no-repeat center;
+  background-size: 100%;
+  -webkit-animation-name: scaleDraw; /*关键帧名称*/
+  -webkit-animation-timing-function: ease-in-out; /*动画的速度曲线*/
+  -webkit-animation-iteration-count: infinite;  /*动画播放的次数*/
+  -webkit-animation-duration: 5s; /*动画所花费的时间*/
+  z-index: 10
+}
+@keyframes scaleDraw {  /*定义关键帧、scaleDrew是需要绑定到选择器的关键帧名称*/
+  0%{
+    transform: scale(0.9);  /*开始为原始大小*/
+  }
+  25%{
+    transform: scale(1); /*放大1.1倍*/
+  }
+  50%{
+    transform: scale(0.9);
+  }
+  75%{
+    transform: scale(1);
+  }
+}
+@keyframes toRight {  /*定义关键帧、scaleDrew是需要绑定到选择器的关键帧名称*/
+  0%{
+    left: 0;  /*开始为原始大小*/
+  }
+  20% {
+    left: 100%;
+  }
+  20.1% {
+    left: 0%;
+  }
+}
+/* name */
+.tree-mine-box {
+  width: 100%;
+  height: 0.24rem;
+  text-align: center;
+  color: #FCCE4F;
+  font-size: 16px;
+  line-height: 0.24rem;
+  font-weight: 500;
+  font-family:PingFangSC;
+}
+.tree-mine-box span {
+  padding: 0 0.2rem;
+  position: relative;
+}
+.tree-mine-box span:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0.12rem;
+  height: 100%;
+  background: url(../images/fruit_tree/leaf_left.png) no-repeat center;
+  background-size: 100%;
+}
+.tree-mine-box span:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 0.12rem;
+  height: 100%;
+  background: url(../images/fruit_tree/leaf_right.png) no-repeat center;
+  background-size: 100%;
+}
+/* 树的等级 */
+.level-wrap {
+  margin-bottom: 0.18rem;
+  padding: 0 0.12rem;
+  width: 100%;
+  height: 0.2rem;
+  line-height: 0.2rem;
+  color: #FCCE4F;
+  font-size: 12px;
+  text-align: center;
+  box-sizing: border-box; 
+}
+.level-wrap .level-num {
+  margin-right: 0.04rem;
+  display: inline-block;
+  width: 0.82rem;
+  text-align: right
+}
+.level-wrap .level-num1 {
+  margin-left: 0.04rem;
+  display: inline-block;
+  width: 0.86rem;
+  text-align: left
+}
+.level-wrap .level-progress {
+  position: relative;
+  vertical-align: middle;
+  display: inline-block;
+  width: 1.5rem;
+  height: 0.04rem;
+  background: #802D02;
+  border-radius: 0.02rem;
+}
+.level-wrap .level-progress-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 10%;
+  height: 100%;
+  background: #FFCC52;
+  border-radius: 0.02rem;
+}
+/* 我的工人 */
+.work-box {
+  width: 100%;
+}
+.work-title {
+  margin-bottom: 0.22rem;
+  position: relative;
+  padding-left: 0.16rem;
+  width: 100%;
+  height: 0.28rem;
+  line-height: 0.28rem;
+  color: #fff;
+  font-size: 20px;
+  box-sizing: border-box;
+}
+.work-title .tips_b{
+  position: absolute;
+  left: 1.1rem;
+  top: 0;
+  width: 1.22rem;
+  height: 0.48rem;
+  background: url(../images/fruit_tree/tips_b.png) no-repeat center;
+  background-size: 100%; 
+  -webkit-animation-name: scaleDraw;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 3s;
+}
+.work-box .speed {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1.06rem;
+  height: 0.28rem;
+  border-radius: 0.14rem 0 0 0.14rem;
+  background: #C0602D;
+  text-align: center;
+  color: #fff;
+  font-size: 12px;
+  line-height: 0.28rem;
+}
+.work-box .speed i {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: bold
+}
+/* 工人 */
+.work-box .swiper-slide {
+  height: 0.74rem;
+  text-align: center;
+  color: #fff;
+  font-size: 12px;
+}
+.work-box .swiper-slide a {
+  color: #fff;
+}
+.work-box img {
+  margin-bottom: 0.06rem;
+  vertical-align: top;
+  width: 0.46rem;
+  height: 0.46rem;
+  border-radius: 50%;
+}
+.work-box .btn-invite {
+  display: inline-block;
+  width: 0.56rem;
+  height: 0.2rem;
+  line-height: 0.2rem;
+  border-radius: 0.1rem;
+  color: #fff;
+  background:linear-gradient(90deg,rgba(253,149,23,1) 0%,rgba(250,115,13,1) 100%);;
+}
+/* 轮播 */
+/* 底部偷好友 */
+.opa {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 9;
+  display: none;
+}
+.fix-tool {
+  position: fixed;
+  bottom: -100%;
+  left: 0;
+  padding: 0 0.1rem;
+  width: 100%; 
+  background: #FEF1E1;
+  box-sizing: border-box;
+  font-size: 14px;
+  text-align: center;
+  z-index:10;
+}
+.fix-tool .close {
+  position: absolute;
+  right: 0;
+  top: 0.08rem;
+  width: 0.44rem;
+  height: 0.44rem;
+  background: url(../images/fruit_tree/icon_close.png) no-repeat center;
+  background-size: 0.12rem; 
+}
+.fix-tool .title {
+  height: 0.5rem;
+  line-height: 0.5rem;
+  font-size: 20px;
+  font-weight: bold;
+  color: #7F2E01;
+}
+.friend-list {
+  margin-bottom: 0.3rem;
+  width: 100%;
+  max-height: 2.2rem;
+  overflow: auto;
+}
+.friend-list li {
+  position: relative;
+  padding: 0.12rem 0.12rem;
+  margin-bottom: 0.12rem;
+  width: 100%;
+  height: 0.6rem;
+  background: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+  box-sizing: border-box
+}
+.friend-list li .label {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 0.22rem;
+  height: 0.22rem;
+  background: url(../images/fruit_tree/icon_steal.png) no-repeat top right;
+  background-size: 100%;
+}
+.friend-list li a {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.friend-list li .face-pic {
+  vertical-align: top;
+  margin-right: 0.16rem;
+  width: 0.36rem;
+  height: 0.36rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.friend-list li .name {
+  width: 1.4rem;
+  height: 100%;
+  line-height: 0.38rem;
+  color: #000;
+  text-align: left;
+}
+.friend-list li .num {
+  padding-right: 0.3rem;
+  font-size: 16px;
+  width: 1rem;
+  height: 100%;
+  line-height: 0.38rem;
+  color: #D38032;
+  text-align: right;
+  background: url(../images/fruit_tree/icon_fruit.png) no-repeat right center;
+  background-size: 0.2rem;
+  box-sizing: border-box;
+}
+.fix-tool .btn-invite-friend {
+  margin: 0 auto;
+  display: block;
+  width: 2.36rem;
+  height:0.66rem;
+  line-height: 0.62rem;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  background: url(../images/fruit_tree/btn_ivite.png) no-repeat center;
+  background-size: 100%;
+}
+.fix-tool .icon-rank {
+  margin-right: 0.12rem;
+  width: 0.24rem;
+  height: 100%;
+  color: #D38032;
+  text-align: center;
+  font-size: 16px;
+  line-height: 0.36rem;
+}
+.fix-tool .rank-first {
+  background: url(../images/fruit_tree/icon_first.png) no-repeat center;
+  background-size: 0.16rem;
+}
+.fix-tool .rank-second {
+  background: url(../images/fruit_tree/icon_second.png) no-repeat center;
+  background-size: 0.16rem;
+}
+.fix-tool .rank-third {
+  background: url(../images/fruit_tree/icon_third.png) no-repeat center;
+  background-size: 0.16rem;
+}
+.hide {
+  display: none
+}
+/* 加载动画 */
+.load {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+.load-animate {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -1.2rem;
+  margin-top: -0.68rem;
+  padding-top: 0.52rem;
+  width: 2.4rem;
+  height: 1.36rem;
+  background: url(../images/fruit_tree/icon_loading_tree.png) no-repeat top center;
+  background-size: 0.4rem;
+  box-sizing: border-box;
+}
+.progress_load {
+  padding: 4px;
+  width: 100%;
+  height: 0.3rem;
+  box-sizing: border-box;
+  background: #1E0C00;
+  border: 1px solid #EBCD77;
+  border-radius: 0.15rem;
+}
+.progress_load .bar {
+  width: 10%;
+  height: 100%;
+  background: linear-gradient(180deg,rgba(254,218,39,1) 0%,rgba(254,210,42,1) 31%,rgba(255,140,34,1) 81%,rgba(185,97,27,1) 100%);
+  border-radius: 0.12rem;
+}
+.load-txt {
+  height: 0.54rem;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  line-height: 0.54rem
+}
+/* @-webkit-keyframes bounceInDown {
+  from,
+  60%,
+  75%,
+  90%,
+  to {
+    -webkit-animation-timing-function: 2s;
+    animation-timing-function: 2s;
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 0, 0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  30% {
+    opacity: 0.98;
+    -webkit-transform: translate3d(0, 10px, 0) scale(0.98);
+    transform: translate3d(0, 10px, 0) scale(0.98);
+  }
+  50% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, -5px, 0) scale(1);
+    transform: translate3d(0, -5px, 0) scale(1);
+  }
+  65% {
+    opacity: 0.9;
+    -webkit-transform: translate3d(0, 8px, 0) scale(0.99);
+    transform: translate3d(0, 8px, 0) scale(0.99);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0, -3px, 0);
+    transform: translate3d(0, -3px, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+} */
+
+@keyframes bounceInDown {
+  from,
+  60%,
+  75%,
+  90%,
+  to {
+    -webkit-animation-timing-function: 2s;
+    animation-timing-function: 2s;
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    height: 1.52rem;
+  }
+
+  30% {
+    opacity: 0.98;
+    -webkit-transform: translate3d(0, 10px, 0);
+    transform: translate3d(0, 10px, 0);
+    height: 1.48rem;
+  }
+  50% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, -3px, 0);
+    transform: translate3d(0, -3px, 0);
+    height: 1.6rem;
+  }
+  65% {
+    opacity: 0.9;
+    -webkit-transform: translate3d(0, 8px, 0);
+    transform: translate3d(0, 8px, 0);
+    height: 1.48rem;
+  }
+
+  90% {
+    -webkit-transform: translate3d(0, -3px, 0);
+    transform: translate3d(0, -3px, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    height: 1.52rem;
+  }
+}
+
+.bounceInDown {
+  -webkit-animation-name: bounceInDown;
+  animation-name: bounceInDown;
+  -webkit-animation-duration: 1.4s; /*动画所花费的时间*/
+}
+.downFruit {
+  -webkit-animation-name: downFruit;
+  animation-name: downFruit;
+  -webkit-animation-duration: 0.8s; /*动画所花费的时间*/
+}
+@keyframes downFruit {
+
+  0% {
+    opacity: 1;
+    top: 0;
+    transform: scale(0);
+  }
+  1% {
+    transform: scale(0.2);
+  }
+  80% {
+    /* opacity: 1; */
+    top: 0.4rem;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    top: 0.4rem;
+    transform: scale(1);
+  }
+}
+/* 偷取结果 */
+.steat_result {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  padding-top: 0.74rem;
+  margin-left: -1.46rem;
+  margin-top: -1.085rem;
+  width: 2.92rem;
+  height: 2.17rem;
+  background: url(../images/fruit_tree/tips_steal_result.png) no-repeat center;
+  background-size: 100%;
+  z-index: 10;
+  box-sizing: border-box;
+}
+.steat_result .txt {
+  width: 100%;
+  height: 0.52rem;
+  line-height: 0.52rem;
+  text-align: center;
+  font-size: 14px;
+  color: #B03914;
+}
+.p-10 {
+  padding: 0 0.1rem;
+} 
+.col-red {
+  color: #E93C36
+}
+.steat_result .btn {
+  vertical-align: top;
+  display: inline-block;
+  width: 1.15rem;
+  height: 0.44rem;
+  font-size: 14px;
+  color: #B03914;
+  line-height: 0.44rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+.steat_result .btn:first-child {
+  border-radius: 0.22rem;
+  border: 1px solid #B03914;
+}
+.steat_result .btn:last-child {
+  background: url(../images/fruit_tree/bg_tell.png) no-repeat center;
+  background-size: 100%;
+}

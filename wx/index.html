@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">  
+  <title>收金果</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" /> 
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <script src="static/js/rem.js"></script>
+  <link rel="stylesheet" href="https://cdn.staticfile.org/Swiper/4.5.1/css/swiper.min.css">
+  <link rel="stylesheet" href="static/css/tree.css?timestamp=" + new Date().getTime()>
+</head>
+<body>
+  <!-- loading -->
+  <div class="load">
+    <div class="load-animate">
+      <div class="progress_load">
+        <div class="bar"></div>
+      </div>
+      <p class="load-txt">加载中…</p>
+    </div>
+  </div>
+  <!-- 授权按钮 -->
+  <div class="play hide">
+    <div class="play-btn">
+      <a class="js_login" href="javascript:;">登录按钮</a>
+    </div>
+    <!--  -->
+  </div>
+  <div class="container hide">
+    <!-- 头部 -->
+    <div class="header">
+      <span class="icon-left"></span>
+      <span class="icon-right"></span>
+      <div class="clearfix">
+        <div class="fl face_pic">
+          <img class="js_userpic" src="static/images/fruit_tree/face_default.png" alt="">
+        </div>
+        <span class="fl name txtElip js_username">吴**6</span>
+        <div class="fl fruit_num txtElip">
+          金果数量 <span class="js_fruit_num">163</span>
+        </div>
+        <!-- <a class="fr btn-exchange" href="javascript:;">兑换金币</a> -->
+      </div>
+    </div>
+    <!-- 提示框 -->
+    <!-- <div class="tips-box txt-c">
+      <div class="tips">
+        <div class="swiper-container js_swiper_tips" >
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">slider1</div>
+            <div class="swiper-slide">slider2</div>
+            <div class="swiper-slide">slider3</div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- 树 -->
+    <div class="tree-box clearfix">
+      <div class="fruits-box">
+        <span class="fl"></span>
+        <span class="fl"></span>
+        <span class="fl"></span>
+      </div>
+      <img class="tree-top" src="static/images/fruit_tree/tree_top.png" alt="">
+      <!-- <span class="tree_tips">经常收金果，会获得很多小惊喜哦！</span> -->
+      <div class="indicator">
+        <p class="num-box">
+            <span class="num js_current"></span>
+        </p>
+        <p class="max" id="times"></p>
+      </div>
+    </div>
+    <!-- 收金果按钮 -->
+    <div class="get_fruit-box clearfix">
+      <div class="fl other-fruit js_steal">
+        <p class="btn">偷金果</p>
+      </div>
+      <a class="fl btn-get-fruit js_get_fruit" href="javascript:;"></a>
+      <span class="hand"></span>
+    </div>
+    <!-- 我的树 -->
+    <!-- <div class="tree-mine-box">
+      <span>吴**6的4级新生幼苗</span>
+    </div> -->
+    <!-- 树的等级 -->
+    <!-- <div class="level-wrap">
+      <span class="level-num">4级</span>
+      <span class="level-progress">
+        <span class="level-progress-bar"></span>
+      </span>
+      <span class="level-num1">还差99%升级</span>
+    </div> -->
+
+    <!-- 工人 -->
+    <div class="work-box">
+      <p class="work-title">我的工人
+        <span class="speed">赚钱速度: &nbsp;<i>x2</i></span>
+        <span class="tips_b"></span>
+      </p>
+      <div class="swiper-container js_swiper_worker" >
+        <!-- <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <a href="javascript:;">
+              <img src="static/images/fruit_tree/face_default.png" alt="">
+              <div>我</div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="javascript:;">
+              <img src="static/images/fruit_tree/icon_worker_light.png" alt="">
+              <div>00:26:39</div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="javascript:;">
+              <img src="static/images/fruit_tree/icon_worker.png" alt="">
+              <div><span class="btn-invite" href="javascript:;">去邀请</span></div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="javascript:;">
+              <img src="static/images/fruit_tree/icon_worker.png" alt="">
+              <div><span class="btn-invite" href="javascript:;">去邀请</span></div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="javascript:;">
+              <img src="static/images/fruit_tree/icon_worker.png" alt="">
+              <div><span class="btn-invite" href="javascript:;">6级解锁</span></div>
+            </a>
+          </div>
+          <div class="swiper-slide">
+            <a href="javascript:;">
+              <img src="static/images/fruit_tree/icon_lock.png" alt="">
+              <div><span class="btn-invite" href="javascript:;">12级解锁</span></div>
+            </a>
+          </div>
+        </div> -->
+      </div>
+    </div>
+    <!-- 底部偷好友 -->
+    <div class="opa"></div>
+    <div class="fix-tool">
+      <a class="close js_close" href="javascript:;"></a>
+      <p class="title">好友排行</p>
+      <ul class="friend-list js_steal_list">
+        <!-- <li class="clearfix">
+          <i class="label js_steal_friend"></i>
+          <a href="javascript:;"></a>
+          <span class="fl icon-rank rank-first"></span>
+          <div class="fl">
+            <img class="fl face-pic" src="static/images/fruit_tree/face_default.png" alt="">
+          </div>
+          <p class="fl name txtElip">六羽</p>
+          <p class="fr num">3,774</p>        
+        </li>
+        <li class="clearfix">
+            <i class="label js_steal_friend"></i>
+          <a href="javascript:;"></a>
+          <span class="fl icon-rank rank-second"></span>
+          <div class="fl">
+            <img class="fl face-pic" src="static/images/fruit_tree/face_default.png" alt="">
+          </div>
+          <p class="fl name txtElip">六羽</p>
+          <p class="fr num">3,774</p>        
+        </li>
+        <li class="clearfix">
+          <a href="javascript:;"></a>
+          <span class="fl icon-rank rank-third"></span>
+          <div class="fl">
+            <img class="fl face-pic" src="static/images/fruit_tree/face_default.png" alt="">
+          </div>
+          <p class="fl name txtElip">六羽</p>
+          <p class="fr num">3,774</p>        
+        </li>
+        <li class="clearfix">
+          <a href="javascript:;"></a>
+          <span class="fl icon-rank">4</span>
+          <div class="fl">
+            <img class="fl face-pic" src="static/images/fruit_tree/face_default.png" alt="">
+          </div>
+          <p class="fl name txtElip">六羽</p>
+          <p class="fr num">3,774</p>        
+        </li>
+        <li class="clearfix">
+          <a href="javascript:;"></a>
+          <span class="fl icon-rank">5</span>
+          <div class="fl">
+            <img class="fl face-pic" src="static/images/fruit_tree/face_default.png" alt="">
+          </div>
+          <p class="fl name txtElip">六羽</p>
+          <p class="fr num">3,774</p>        
+        </li> -->
+      </ul>
+      <a class="btn-invite-friend" href="javascript:;">邀请好友 加倍赚钱</a>
+    </div>
+    <!-- 偷取结果弹框 -->
+    <div class="steat_result hide">
+      <p class="txt txtElip">成功偷取好友<span class="p-10 col-red js_steal_num"></span>个金果</p>
+      <div class="txt-c">
+        <a class="btn js_close_btn" href="javascript:;">溜回家</a>
+        <a class="btn js_tell" href="javascript:;">告诉TA一声</a>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/Swiper/4.5.1/js/swiper.min.js"></script>
+  <script src="static/js/res_loader.js"></script>
+  <script src="static/js/storages.js"></script>
+  <script src="static/js/fruit_tree.js?timestamp=" + new Date().getTime()></script>
+  <script src="http://res2.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+
+  <script>
+    
+    $(function(){   
+      // 点击偷金果
+      $(".js_steal").click(function(){
+        $(".opa").show().animate({ 
+          opacity: 1
+        }, 500);
+        $(".fix-tool").animate({ 
+          bottom: 0
+        }, 500);
+      })
+
+      $(document).on("click", ".js_close_btn", function(){
+        $(".opa").hide().animate({ 
+          opacity: 0
+        }, 500);
+        $(".steat_result").fadeOut();
+      })
+
+      $(document).on("click", ".js_tell", function(){
+        $(".opa").hide().animate({ 
+          opacity: 0
+        }, 500);
+        $(".steat_result").fadeOut();
+      })
+      // 关闭偷金果的底部弹框
+      $(".js_close").click(function(){
+
+        $(".opa").hide().animate({ 
+          opacity: 0
+        }, 500);
+
+        $(".fix-tool").animate({ 
+          bottom: "-100%"
+        }, 500);
+      })
+    })
+  </script>
+</body>
+</html>

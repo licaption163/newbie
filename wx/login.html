@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>收金果</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <script src="static/js/rem.js"></script>
+  <link rel="stylesheet" href="https://cdn.staticfile.org/Swiper/4.5.1/css/swiper.min.css">
+  <link rel="stylesheet" href="static/css/tree.css?timestamp=" + new Date().getTime()>
+</head>
+<body>
+<!-- 授权按钮 -->
+<div class="play">
+  <div class="play-btn">
+    <a class="js_login" href="javascript:;">登录按钮</a>
+  </div>
+</div>
+<script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
+<script src="static/js/storages.js"></script>
+<script>
+    $(function(){
+        var code = getUriParam("code");
+        var loginUrl = "/api.php?op=game&act=login&code=" + code;
+        var fOpenId = LsyStorage.getItem('fOpenId');
+
+        if(fOpenId) {
+            loginUrl = loginUrl + "&code=" + fOpenId
+        }
+        $.get(loginUrl, function(data){
+
+            if(data.code==1) {
+                // token正常
+                var result = data.data;
+
+                $(".js_login").on("click", function(){
+                    window.location.href = "http://g.ihuqu.com/wx/index.html?openId=" + result.openid;
+                })
+            }
+
+
+        },'json')
+
+        function getUriParam(name){
+            var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if(r!=null)return  unescape(r[2]); return null;
+        }
+    })
+</script>
+</body>
+</html>

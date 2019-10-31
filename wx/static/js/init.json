@@ -1,0 +1,26 @@
+{
+  "isLogin": true,
+  "userinfo": {
+    "nickname": "六羽",
+    "headimgurl": "https://gss3.bdstatic.com/-Po3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=d6d431bf9aef76c6d0d2fc2da52d9ac7/2f738bd4b31c8701928251782d7f9e2f0708ff7c.jpg"
+  },
+  "fruit_num": 190,
+  "times": 0,
+  "current_num": 180,
+  "friend_list": [{
+    "nickname": "六羽",
+    "headimgurl": "https://gss3.bdstatic.com/-Po3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=d6d431bf9aef76c6d0d2fc2da52d9ac7/2f738bd4b31c8701928251782d7f9e2f0708ff7c.jpg",
+    "fruit_num": 1800,
+    "isSteal": false
+  }, {
+    "nickname": "六羽",
+    "headimgurl": "https://gss3.bdstatic.com/-Po3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=d6d431bf9aef76c6d0d2fc2da52d9ac7/2f738bd4b31c8701928251782d7f9e2f0708ff7c.jpg",
+    "fruit_num": 1800,
+    "isSteal": true
+  }, {
+    "nickname": "六羽",
+    "headimgurl": "https://gss3.bdstatic.com/-Po3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=d6d431bf9aef76c6d0d2fc2da52d9ac7/2f738bd4b31c8701928251782d7f9e2f0708ff7c.jpg",
+    "fruit_num": 1800,
+    "isSteal": false
+  }]
+}
