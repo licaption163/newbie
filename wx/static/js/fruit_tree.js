@@ -387,8 +387,8 @@ $(function(){
                     });
 
                     wx.updateAppMessageShareData({
-                        title: payConfig.title,
-                        desc: payConfig.description,
+                        // title: payConfig.title,
+                        // desc: payConfig.description,
                         link: payConfig.url,
                         imgUrl: payConfig.thumb,
                         trigger: function (res) {
