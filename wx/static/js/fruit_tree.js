@@ -168,7 +168,7 @@ $(function(){
                     });
                 } else {
                     var str = '<div class="swiper-wrapper">';
-                    
+
                     for(var i=0; i<5; i++){
                         str += '<div class="swiper-slide">';
 
@@ -275,7 +275,7 @@ $(function(){
                 $(".js_steal_num").html(stealNum);
                 var all = Number($(".js_fruit_num").html())
                 $(".js_fruit_num").html(Number(stealNum + all));
-            })
+            }, 'json')
         } else {
             alert("该好友暂时不可偷取")
         }

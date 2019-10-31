@@ -206,7 +206,6 @@
       </div>
     </div>
   </div>
-  <a href="javascript:;" class="removeToken">清除token</a>
   <script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdn.staticfile.org/Swiper/4.5.1/js/swiper.min.js"></script>
   <script src="static/js/res_loader.js"></script>
@@ -216,10 +215,7 @@
 
   <script>
     
-    $(function(){ 
-      $(".removeToken").click(function(){
-        LsyStorage.clear();
-      })  
+    $(function(){  
       // 点击偷金果
       $(".js_steal").click(function(){
         $(".opa").show().animate({ 
