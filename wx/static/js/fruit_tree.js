@@ -208,7 +208,7 @@ $(function(){
                 str += '<li class="clearfix">';
                 if(list[k].fruitStatus==1) {
                     str += '<i class="label js_steal_friend"></i>';
-                    str += '<a href="javascript:;" class="js_steal_btn" data-openId="'+ list[k].openid +'"></a>';
+                    str += '<a href="javascript:;" class="js_steal_btn" data-val="'+ list[k].openid +'"></a>';
                 } else {
                     str += '<a href="javascript:;"></a>';
                 }
@@ -263,7 +263,9 @@ $(function(){
     // 偷好友金果
     $(document).on("click", ".js_steal_list a", function(){
         if($(this).hasClass("js_steal_btn")) {
-            var fOpenId = $(this).data("openId");
+            var fOpenId = $(this).data("val");
+            console.log($(this))
+            console.log(fOpenId)
 
             $(this).removeClass("js_steal_btn").siblings("i").remove()
             $(".fix-tool").animate({
