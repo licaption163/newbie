@@ -167,6 +167,8 @@ $(function(){
                         observerParents: true,
                     });
                 } else {
+                    var str = '<div class="swiper-wrapper">';
+                    
                     for(var i=0; i<5; i++){
                         str += '<div class="swiper-slide">';
 
