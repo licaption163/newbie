@@ -30,13 +30,17 @@
         if(fOpenId) {
             loginUrl = loginUrl + "&from=" + fOpenId
         }
+        alert(1)
         $.get(loginUrl, function(data){
-
+            alert(2)
             if(data.code==1) {
+                alert(3)
                 // token正常
                 var result = data.data;
 
                 $(".js_login").on("click", function(){
+                    alert(4)
+                    alert("http://g.ihuqu.com/wx/index.html?openId=" + result.openid)
                     window.location.href = "http://g.ihuqu.com/wx/index.html?openId=" + result.openid;
                 })
             }
