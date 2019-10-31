@@ -360,7 +360,7 @@ $(function(){
                 signature = payConfig.signature;
 
                 wx.config({
-                    debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
                     appId: appId, // 必填，公众号的唯一标识
                     timestamp: timestamp, // 必填，生成签名的时间戳
                     nonceStr: nonceStr, // 必填，生成签名的随机串
@@ -391,18 +391,19 @@ $(function(){
                         desc: payConfig.description,
                         link: payConfig.url,
                         imgUrl: payConfig.thumb,
-                        trigger: function (res) {
-                            // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
-                        },
+                        // trigger: function (res) {
+                        // // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+                        // },
                         success: function (res) {
                             // alert('分享给朋友成功');
+                            console.log(payConfig.url)
                         },
                         cancel: function (res) {
                             // alert('你没有分享给朋友');
-                        },
-                        fail: function (res) {
-                            // alert(JSON.stringify(res));
                         }
+                        // fail: function (res) {
+                        //     // alert(JSON.stringify(res));
+                        // }
                     });
                 });
             }
