@@ -35,11 +35,11 @@ $(function(){
 
             if(!token) {
                 // 获取不到token，第一次登陆，去认证
-                login(redirect_uri);
+                // login(redirect_uri);
             } else {
-                LsyStorage.setItem('token', token);
-                fx()
-                getInit()
+                // LsyStorage.setItem('token', token);
+                // fx()
+                // getInit()
             }
         }
     });
@@ -142,7 +142,7 @@ $(function(){
                         if(i == 0) {
                             // 第一个是自己
                             str += '<a href="javascript:;">';
-                            str += '<img src="static/images/fruit_tree/face_default.png" alt="">';
+                            str += '<img src="' + userInfo.headimgurl + '" alt="">';
                             str += '<div>我</div>';
                         } else if(i<= friendList.length&& i<4 ) {
                             // 点亮的图标
@@ -169,13 +169,13 @@ $(function(){
                 } else {
                     var str = '<div class="swiper-wrapper">';
 
-                    for(var i=0; i<5; i++){
+                    for(var i=0; i<5; i++) {
                         str += '<div class="swiper-slide">';
 
                         if(i == 0) {
                             // 第一个是自己
                             str += '<a href="javascript:;">';
-                            str += '<img src="static/images/fruit_tree/face_default.png" alt="">';
+                            str += '<img src="' + userInfo.headimgurl + '" alt="">';
                             str += '<div>我</div>';
                         } else {
                             // 未点亮图标
@@ -204,6 +204,11 @@ $(function(){
         $.get(baseUrl+"/api.php?op=game&act=flist&token="+ LsyStorage.getItem('token'),{}, function(data){
             var list = data.data;
             var str = '';
+
+            if(list.length<=0) {
+                $(".js_steal_list").html("您暂时还没有好友可以偷果子，快去邀请吧。")
+                return;
+            }
             for(var k=0; k<list.length; k++) {
                 str += '<li class="clearfix">';
                 if(list[k].fruitStatus==1) {
@@ -254,11 +259,12 @@ $(function(){
     })
     // 邀请
     $(document).on("click", ".js_invite", function(){
-        var that = $(this);
-        $.get("static/js/invite.json",{}, function(data){
-            that.find("img").attr("src", "static/images/fruit_tree/icon_worker_light.png")
-            that.find("div").html("六羽")
-        })
+        // var that = $(this);
+        showSharePage()
+        // $.get("static/js/invite.json",{}, function(data){
+        //     that.find("img").attr("src", "static/images/fruit_tree/icon_worker_light.png")
+        //     that.find("div").html("六羽")
+        // })
     })
     // 偷好友金果
     $(document).on("click", ".js_steal_list a", function(){
@@ -277,10 +283,13 @@ $(function(){
                 $(".js_fruit_num").html(Number(stealNum + all));
             }, 'json')
         } else {
-            alert("该好友暂时不可偷取")
+            alert("偷完啦看看其他好友吧")
         }
 
     })
+    function showSharePage() {
+        $(".js_showShare").fadeIn()
+    }
     /* 时间倒计时 */
     // times:秒数
     function TimeDown(obj, times) {
@@ -323,6 +332,8 @@ $(function(){
         return s;
     }
 
+
+    // 授权链接
     function getRequestCodeUrl(redirectUrl){
         urlEncodeUrl = null;
         try {
@@ -341,7 +352,7 @@ $(function(){
         return (Array(length).join("0") + num).slice(-length);
     }
 
-
+    // 分享
     function fx() {
         var timestamp;//时间戳
         var nonceStr;//随机串
