@@ -35,11 +35,11 @@ $(function(){
 
             if(!token) {
                 // 获取不到token，第一次登陆，去认证
-                // login(redirect_uri);
+                login(redirect_uri);
             } else {
-                // LsyStorage.setItem('token', token);
-                // fx()
-                // getInit()
+                LsyStorage.setItem('token', token);
+                fx()
+                getInit()
             }
         }
     });
