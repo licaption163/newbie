@@ -1,0 +1,56 @@
+body {
+  position: relative;
+  padding-top: 0.3rem;
+  background:url(../images/bg_color.png) no-repeat center;
+  background-size: 100% 100%;
+  overflow-x:hidden;
+  min-height: 100vh;
+}
+.bg-title {
+  vertical-align: top;
+  width: 100%;
+}
+.banner {
+  position: absolute;
+  left: 50%;
+  top: 1.57rem;
+  margin-left: -1.725rem;
+  padding-left: 0.12rem;
+  width: 3.45rem;
+  box-sizing: border-box;
+}
+.turnplate {
+  padding-right: 0.12rem;
+  padding-bottom: 0.16rem;
+  box-sizing: border-box;
+  background-image:url(../images/bg_draw.png);
+  background-size:100% 100%;
+}
+.banner .turnplate img.pointer {
+  width: 0.94rem;
+  height: 1.14rem;
+  left: 1.14rem;
+  top: 0.94rem;
+}
+/* 剩余免费次数 */
+.free-times-box {
+  position: absolute;
+  left: 0;
+  top: 4.97rem;
+  width: 100%;
+  height: 0.3rem;
+  line-height: 0.3rem;
+  text-align: center
+}
+.free-times-box .free-times {
+  display: inline-block;
+  color: #fff;
+  height: 0.3rem;
+  font-size: 20px;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  line-height: 0.3rem;
+  letter-spacing:1px;
+  border-bottom: 1px solid #fff;
+  box-sizing: border-box
+}
