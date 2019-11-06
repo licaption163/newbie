@@ -40,6 +40,7 @@ $(function(){
 
   //旋转转盘 item:奖品位置; txt：提示语;
   var rotateFn = function(item, txt) {
+    console.log(item, txt)
     var angles = item * (360 / turnplate.restaraunts.length) - (360 / (turnplate.restaraunts.length * 2));
 
     if(angles < 270) {
@@ -78,53 +79,17 @@ $(function(){
 
         // 去抽奖
         $.get(baseUrl+"/api.php?op=lucky&act=num&token=" + uid,{}, function(data) {
+
           turnplate.bRotate = !turnplate.bRotate;
           
           // 奖品次数减1
           times = times - 1;
           $(".js_times").html(times);
           //获取奖品
-          // var item = rnd(1, turnplate.restaraunts.length);
           var item = data.num;
           //奖品数量等于10,指针落在对应奖品区域的中心角度[252, 216, 180, 144, 108, 72, 36, 360, 324, 288]
-          // rotateFn(item, turnplate.restaraunts[item - 1]);
-
-          switch (item) {
-            case 1:
-              console.log(item, 0)
-              rotateFn(item, turnplate.restaraunts[0]);
-              break;
-            case 2:
-                console.log(item, 1)
-              rotateFn(item, turnplate.restaraunts[1]);
-              break;
-            case 3:
-              rotateFn(item, turnplate.restaraunts[2]);
-              break;
-            case 4:
-              rotateFn(item, turnplate.restaraunts[3]);
-              break;
-            case 5:
-              rotateFn(item, turnplate.restaraunts[4]);
-              break;
-            case 6:
-              rotateFn(item, turnplate.restaraunts[5]);
-              break;
-            case 7:
-              rotateFn(item, turnplate.restaraunts[6]);
-              break;
-            case 8:
-              rotateFn(item, turnplate.restaraunts[7]);
-              break;
-            case 9:
-              rotateFn(item, turnplate.restaraunts[8]);
-              break;
-            case 10:
-              rotateFn(item, turnplate.restaraunts[9]);
-              break;
-          }
-        })
-      
+          rotateFn(item, turnplate.restaraunts[item - 1]);
+        }, 'json')     
       }
     }   
   });
