@@ -276,7 +276,7 @@ function fx() {
   var nonceStr;//随机串
   var signature;//签名
   var appId;//签名
-  var payConfigURL = "/api.php?op=lucky&act=fx&token=" + token;
+  var payConfigURL = "/api.php?op=lucky&act=fx&token=" + uid;
 
   $.post(payConfigURL,function (data, status) {
       var resultCode = data.resultCode;
