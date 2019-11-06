@@ -157,7 +157,7 @@ function getInit (token) {
     $.get(initUrl,{}, function(data) {
       //动态添加大转盘的奖品与奖品区域背景颜色
       var giftArr = []
-      data.gift.foreach(function(item){ //item就是json里面的List对象 下面item.Id就是遍历字段
+      data.gift.forEach(function(item){ //item就是json里面的List对象 下面item.Id就是遍历字段
         console.log(item.value)
         giftArr.push(item.value)
         
