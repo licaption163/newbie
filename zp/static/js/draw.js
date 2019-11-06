@@ -1,8 +1,12 @@
 var AppId = "wxa116501401533ece";
 var baseUrl = "http://g.ihuqu.com"
 var redirect_uri = baseUrl + "/zp";
-var uid = LsyStorage.getItem('uid') || getUriParam("uid");
-var fid = getUriParam('fid');
+var uid = LsyStorage.getItem('token') || getUriParam("token");
+var fid = getUriParam('ff') || LsyStorage.getItem('fid');
+
+if(fid) {
+  LsyStorage.setItem('fid', fid)
+}
 var times = 1;
 
 var turnplate = {
@@ -120,13 +124,6 @@ $(function(){
               break;
           }
         })
-        
-        
-      
-
-      
-      //奖品数量等于10,指针落在对应奖品区域的中心角度[252, 216, 180, 144, 108, 72, 36, 360, 324, 288]
-      // rotateFn(item, turnplate.restaraunts[item - 1]);
       
       }
     }   
@@ -183,7 +180,7 @@ function login(code) {
   $.get(loginUrl, function(data){
       if(data.code==1) {
         uid = data.data.openid;
-        LsyStorage.setItem('uid', uid);
+        LsyStorage.setItem('token', uid);
         getInit (uid)
       }
   },'json')
@@ -314,7 +311,7 @@ function fx() {
   var nonceStr;//随机串
   var signature;//签名
   var appId;//签名
-  var payConfigURL = "/api.php?op=zp&act=fx&token=" + uid;
+  var payConfigURL = "/api.php?op=lucky&act=fx&token=" + token;
 
   $.post(payConfigURL,function (data, status) {
       var resultCode = data.resultCode;
