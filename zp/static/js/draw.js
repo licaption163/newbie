@@ -1,3 +1,10 @@
+var AppId = "wxa116501401533ece";
+var baseUrl = "http://g.ihuqu.com"
+var redirect_uri = baseUrl + "/zp";
+var uid = LsyStorage.getItem('uid') || getUriParam("uid");
+var fid = getUriParam('fid');
+var times = 1;
+
 var turnplate = {
   restaraunts: [], //大转盘奖品名称
   colors: [], //大转盘奖品区块对应背景颜色
@@ -8,10 +15,10 @@ var turnplate = {
   bRotate: false //false:停止;ture:旋转
 };
 
+
+
 $(function(){
-  // //动态添加大转盘的奖品与奖品区域背景颜色
-  turnplate.restaraunts = ["51M免费流量包", "11闪币", "50M免费流量包", "12闪币", "13闪币"];
-	turnplate.colors = ["#FEE3C6", "#FFEFF9", "#FCCE83", "#FEE3C6", "#FFEFF9", "#FCCE83"];
+  isLogin()
 
   // 设置超时时间
 	var rotateTimeOut = function() {
@@ -52,61 +59,145 @@ $(function(){
 
   // 点击抽奖按钮
   $('.pointer').click(function() {
-    var times = parseInt($(".js_times").html());
+    if(!uid) {
+      // 获取不到token，第一次登陆，去认证
+      window.location.href = getRequestCodeUrl(redirect_uri);
+    } else {
+      // 抽奖机会已用尽
+      if(times<=0) {
+        alert("您今天的抽奖机会已用尽！")
+      } else {
+        // 还有抽奖次数
+        // 转盘还在转
+        if(turnplate.bRotate) return;
 
-    // 抽奖机会已用尽
-    if(times==0){
-
-      alert("您今天的抽奖机会已用尽！")
-    } else{
-
-      // 还有抽奖次数
-      if(turnplate.bRotate) return;
-      turnplate.bRotate = !turnplate.bRotate;
-      //获取随机数(奖品个数范围内)
-      var item = rnd(1, turnplate.restaraunts.length);
+        // 去抽奖
+        $.get(baseUrl+"/api.php?op=lucky&act=num&token=" + uid,{}, function(data) {
+          turnplate.bRotate = !turnplate.bRotate;
+          
+          // 奖品次数减1
+          times = times - 1;
+          $(".js_times").html(times);
+          //获取奖品
+          // var item = rnd(1, turnplate.restaraunts.length);
+          var item = data.num;
+          //奖品数量等于10,指针落在对应奖品区域的中心角度[252, 216, 180, 144, 108, 72, 36, 360, 324, 288]
+          rotateFn(item, turnplate.restaraunts[item - 1]);
+        })
+        
+        
       
 
-      // 奖品次数减1
-      $(".js_times").html(times-1)
+      
       //奖品数量等于10,指针落在对应奖品区域的中心角度[252, 216, 180, 144, 108, 72, 36, 360, 324, 288]
       // rotateFn(item, turnplate.restaraunts[item - 1]);
-      switch (item) {
-        case 1:
-          rotateFn(item, turnplate.restaraunts[0]);
-          break;
-        case 2:
-          rotateFn(item, turnplate.restaraunts[1]);
-          break;
-        case 3:
-          rotateFn(item, turnplate.restaraunts[2]);
-          break;
-        case 4:
-          rotateFn(item, turnplate.restaraunts[3]);
-          break;
-        case 5:
-          rotateFn(item, turnplate.restaraunts[4]);
-          break;
-        case 6:
-          rotateFn(item, turnplate.restaraunts[5]);
-          break;
-        case 7:
-          rotateFn(item, turnplate.restaraunts[6]);
-          break;
-        case 8:
-          rotateFn(item, turnplate.restaraunts[7]);
-          break;
-        case 9:
-          rotateFn(item, turnplate.restaraunts[8]);
-          break;
-        case 10:
-          rotateFn(item, turnplate.restaraunts[9]);
-          break;
+      // switch (item) {
+      //   case 1:
+      //     console.log(item, 0)
+      //     rotateFn(item, turnplate.restaraunts[0]);
+      //     break;
+      //   case 2:
+      //       console.log(item, 1)
+      //     rotateFn(item, turnplate.restaraunts[1]);
+      //     break;
+      //   case 3:
+      //     rotateFn(item, turnplate.restaraunts[2]);
+      //     break;
+      //   case 4:
+      //     rotateFn(item, turnplate.restaraunts[3]);
+      //     break;
+      //   case 5:
+      //     rotateFn(item, turnplate.restaraunts[4]);
+      //     break;
+      //   case 6:
+      //     rotateFn(item, turnplate.restaraunts[5]);
+      //     break;
+      //   case 7:
+      //     rotateFn(item, turnplate.restaraunts[6]);
+      //     break;
+      //   case 8:
+      //     rotateFn(item, turnplate.restaraunts[7]);
+      //     break;
+      //   case 9:
+      //     rotateFn(item, turnplate.restaraunts[8]);
+      //     break;
+      //   case 10:
+      //     rotateFn(item, turnplate.restaraunts[9]);
+      //     break;
+      // }
       }
     }   
   });
 })
 
+
+
+
+
+function isLogin(){
+  var code = getUriParam("code");
+
+  // 授权进来的
+  if(code) {
+    login(code)
+  } else {
+    // 正常进来的
+    getInit ()
+  }
+}
+// 页面初始化
+function getInit (token) {
+    var initUrl = baseUrl+"/api.php?op=lucky&act=index";
+
+    if(token) {
+      initUrl = initUrl + "&token="+ token
+    }
+
+    $.get(initUrl,{}, function(data) {
+      //动态添加大转盘的奖品与奖品区域背景颜色
+      turnplate.restaraunts = data.gift;
+      turnplate.colors = ["#FEE3C6", "#FFEFF9", "#FCCE83", "#FEE3C6", "#FFEFF9", "#FCCE83"];
+      
+      $('.js_times').html(data.times);
+      times = data.times;
+    }, 'json')
+}
+// 登录
+function login(code) {
+  var loginUrl = baseUrl + "/api.php?op=lucky&act=login&code=" + code;        
+  var fid = LsyStorage.getItem('fid');
+
+  if(fid) {
+    loginUrl = loginUrl + "&ff=" + fid
+  }
+  
+  $.get(loginUrl, function(data){
+      if(data.code==1) {
+        uid = data.data.openid;
+        LsyStorage.setItem('uid', uid);
+        getInit (uid)
+      }
+  },'json')
+}
+// 授权链接
+function getRequestCodeUrl(redirectUrl){
+  urlEncodeUrl = null;
+  try {
+      urlEncodeUrl = encodeURI(redirectUrl);
+      //urlEncodeUrl = redirectUrl;
+  } catch (e) {
+      alert("编码错误");
+  }
+  var tempStr = "https://open.weixin.qq.com/connect/oauth2/authorize?appid={0}&redirect_uri={1}&response_type=code&scope={2}&state={3}#wechat_redirect";
+  var resultStr = tempStr.format(AppId, urlEncodeUrl, "snsapi_userinfo","xxxx_state");
+  return resultStr;
+}
+
+function getUriParam(name){
+  var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+  var r = window.location.search.substr(1).match(reg);
+  if(r!=null)return  unescape(r[2]); return null;
+}
 
 // 抽奖，奖品位置设置
 function drawRouletteWheel() {
@@ -206,4 +297,72 @@ function drawRouletteWheel() {
       ctx.restore();
     }
   }
+}
+// 分享
+function fx() {
+  var timestamp;//时间戳
+  var nonceStr;//随机串
+  var signature;//签名
+  var appId;//签名
+  var payConfigURL = "/api.php?op=zp&act=fx&token=" + uid;
+
+  $.post(payConfigURL,function (data, status) {
+      var resultCode = data.resultCode;
+
+      if ("success" == resultCode) {
+          var payConfig = data.values;
+          appId = payConfig.appId;
+          timestamp = payConfig.timeStamp;
+          nonceStr = payConfig.nonceStr;
+          signature = payConfig.signature;
+
+          wx.config({
+              debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+              appId: appId, // 必填，公众号的唯一标识
+              timestamp: timestamp, // 必填，生成签名的时间戳
+              nonceStr: nonceStr, // 必填，生成签名的随机串
+              signature: signature,// 必填，签名，见附录1
+              jsApiList: ['updateTimelineShareData', 'updateAppMessageShareData']
+              // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+          });
+
+          wx.ready(function () {
+              // wx.hideOptionMenu();
+              wx.updateTimelineShareData({
+                  title: payConfig.title,
+                  desc: payConfig.description,
+                  link: payConfig.url,
+                  imgUrl: payConfig.thumb,
+                  success: function () {
+                      // 用户确认分享后执行的回调函数
+                      // alert('分享到朋友圈成功');
+                  },
+                  cancel: function () {
+                      // 用户取消分享后执行的回调函数
+                      // alert('你没有分享到朋友圈');
+                  }
+              });
+
+              wx.updateAppMessageShareData({
+                  title: payConfig.title,
+                  desc: payConfig.description,
+                  link: payConfig.url,
+                  imgUrl: payConfig.thumb,
+                  // trigger: function (res) {
+                  // // 不要尝试在trigger中使用ajax异步请求修改本次分享的内容，因为客户端分享操作是一个同步操作，这时候使用ajax的回包会还没有返回
+                  // },
+                  success: function (res) {
+                      // alert('分享给朋友成功');
+                      console.log(payConfig.url)
+                  },
+                  cancel: function (res) {
+                      // alert('你没有分享给朋友');
+                  }
+                  // fail: function (res) {
+                  //     // alert(JSON.stringify(res));
+                  // }
+              });
+          });
+      }
+  },'json');
 }
