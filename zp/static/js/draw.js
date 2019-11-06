@@ -19,6 +19,7 @@ var turnplate = {
 
 $(function(){
   isLogin()
+  fx()
 
   // 设置超时时间
 	var rotateTimeOut = function() {
@@ -155,9 +156,15 @@ function getInit (token) {
 
     $.get(initUrl,{}, function(data) {
       //动态添加大转盘的奖品与奖品区域背景颜色
-      turnplate.restaraunts = data.gift;
+      var giftArr = []
+      data.gift.foreach(function(item){ //item就是json里面的List对象 下面item.Id就是遍历字段
+        console.log(item.value)
+        giftArr.push(item.value)
+        
+      })
+      turnplate.restaraunts = giftArr;
       turnplate.colors = ["#FEE3C6", "#FFEFF9", "#FCCE83", "#FEE3C6", "#FFEFF9", "#FCCE83"];
-      
+      drawRouletteWheel()
       $('.js_times').html(data.times);
       times = data.times;
     }, 'json')
@@ -298,6 +305,7 @@ function drawRouletteWheel() {
     }
   }
 }
+
 // 分享
 function fx() {
   var timestamp;//时间戳
@@ -365,4 +373,40 @@ function fx() {
           });
       }
   },'json');
+}
+
+String.prototype.format = function(args) {
+  var result = this;
+  if (arguments.length > 0) {
+      if (arguments.length == 1 && typeof (args) == "object") {
+          for ( var key in args) {
+              if (args[key] != undefined) {
+                  var reg = new RegExp("({" + key + "})", "g");
+                  result = result.replace(reg, args[key]);
+              }
+          }
+      } else {
+          for (var i = 0; i < arguments.length; i++) {
+              if (arguments[i] != undefined) {
+                  // var reg = new RegExp("({[" + i + "]})",
+                  // "g");//这个在索引大于9时会有问题，谢谢何以笙箫的指出
+                  var reg = new RegExp("({)" + i + "(})", "g");
+                  result = result.replace(reg, arguments[i]);
+              }
+          }
+      }
+  }
+  return result;
+}
+
+String.format = function() {
+  if (arguments.length == 0)
+      return null;
+
+  var str = arguments[0];
+  for (var i = 1; i < arguments.length; i++) {
+      var re = new RegExp('\\{' + (i - 1) + '\\}', 'gm');
+      str = str.replace(re, arguments[i]);
+  }
+  return str;
 }
