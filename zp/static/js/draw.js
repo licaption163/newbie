@@ -106,7 +106,7 @@ function isLogin(){
     login(code)
   } else {
     // 正常进来的
-    getInit ()
+    getInit(uid)
   }
 }
 // 页面初始化
