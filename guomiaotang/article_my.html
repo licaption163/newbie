@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>  
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>国妙堂</title>
+    <meta name="keywords" content="国妙堂">
+    <meta name="description" content="国妙堂"/>
+    <link rel="stylesheet" type="text/css" href="statics/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/page.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/index.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/media.css">
+    <script type="text/javascript" src="statics/js/jquery.min.js"></script>
+    <script type="text/javascript" src="statics/js/swiper.min.js"></script>
+    <script type="text/javascript" src="statics/js/swiper.animate.min.js"></script>
+    <script type="text/javascript" src="statics/js/index.js"></script>
+    <script type="text/javascript">
+      function IsPC() {
+        var userAgentInfo = navigator.userAgent;
+        var Agents = ["Android", "iPhone",
+          "SymbianOS", "Windows Phone",
+          "iPad", "iPod"];
+        var flag = true;
+        for (var v = 0; v < Agents.length; v++) {
+          if (userAgentInfo.indexOf(Agents[v]) > 0) {
+            flag = false;
+            break;
+          }
+        }
+        return flag;
+      }
+      if(!IsPC()){
+        var url = window.location.href;
+        var index = url.lastIndexOf("\/");
+        str = url.substring(index + 1,url.length);
+        if(str != 'index_m.html'){
+          window.location.href = 'http://guomiaotang.cn/index_m.html';
+        }
+      }
+    </script>
+</head>
+<script type="text/javascript">
+    //全局变量
+    var GV = {
+        ROOT: "/",
+        WEB_ROOT: "/",
+        JS_ROOT: "statics/js/"
+    };
+</script>
+<script src="statics/js/wind.js"></script>
+  <body>
+    <!-- 头部  导航 -->
+    <div class="header">
+      <div class="header_ch clearfix">
+        <a class="logo fl" href="/"></a>
+        <ul class="nav fr clearfix">
+          <li class="">
+            <a class="bg" href="index.html" target="">首页</a>
+          </li>
+          <li class="">
+            <a  href="about_me.html" target="">关于我们</a>
+          </li>
+          <li class="">
+            <a  href="answer.html" target="">QA解答</a>
+          </li>
+          <li class="">
+            <a  href="contact_us.html" target="">联系我们</a>
+          </li>
+        </ul>
+      </div>
+    </div> 
+    <!-- banner 区域 -->
+    <!--content 内容区域  -->
+    <div class="in_z">
+      <div class="swiper-container1">
+        <div class="swiper-wrapper">
+					<div class="swiper-slide in2" data-hash="in2">
+            <div class="bg">
+              <div class="in2_ch clearfix">
+                <div class="in2_fl fl" style="width: 68%">
+                  <div class="title-box ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="0.6s" style="width: 31%">
+                    <p class="in2_tit1 f50">名医力荐</p>
+                    <!-- <p class="in2_tit2"></p> -->
+                  </div>
+                  <div class="in2_text">
+                    <p class="ani mb-30" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.9s" style="font-size: 16px;font-weight:bold;">保肝护胆-用于重大疾病的治疗，熊胆粉效果显著且不可替代！</p>
+                      <p class="ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.9s">
+                          1.李连达院士  中药药理学专家，中国工程院院士<br>
+                            &nbsp;&nbsp;熊胆的可贵在于它可以治疗重症。到今天为止没有任何一个药可以全部替代熊胆。<br><br>
+                          2.李佩文教授  授首都国医名师/中央保健会诊专家<br>
+                            &nbsp;&nbsp;“肝癌病人产生的发烧、眼睛红、食欲不振等等一些副作用，服用熊胆粉可以很快解决这种现象”<br><br>
+                          3.李芹教授  福建孟超肝胆医院副院长/主任医师<br>
+                            &nbsp;&nbsp;“熊胆粉是千年名药，对肝胆问题有很好的作用。以前是皇家贵族吃的，未来要让更多老百姓都能用上！”<br><br>
+                          4.金世元教授  国药泰斗/被誉为“活药典”<br>
+                            &nbsp;&nbsp;“熊胆的药用价值，是不能有替代品，人工合成不可取！”
+                      </p>
+                  </div>
+                </div>
+                <!-- <div class="in2_fr fr ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1.2s" swiper-animate-delay="0.3s">
+                  <span class="opa"></span>
+                  <img src="statics/images/pro_in2.png">
+                </div> -->
+              </div>
+            </div>
+					</div>
+      </div>
+    </div>
+			<div class="swiper-pagination"></div>
+		<!-- </div> -->
+	</div>
+	
+      <!--footer 底部  -->
+      
+		
+    </body>
+    <script src="statics/js/admin.js"></script>
+</html>

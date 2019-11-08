@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>  
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>国妙堂</title>
+    <meta name="keywords" content="国妙堂">
+    <meta name="description" content="国妙堂"/>
+    <link rel="stylesheet" type="text/css" href="statics/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/page.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/index.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/media.css">
+    <script type="text/javascript" src="statics/js/jquery.min.js"></script>
+    <script type="text/javascript" src="statics/js/swiper.min.js"></script>
+    <script type="text/javascript" src="statics/js/index.js"></script>
+    <!-- //引入地图插件 -->
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=85ffac8687b7f0075c32b7175187bd2b"></script>
+    <script type="text/javascript">
+      function IsPC() {
+        var userAgentInfo = navigator.userAgent;
+        var Agents = ["Android", "iPhone",
+          "SymbianOS", "Windows Phone",
+          "iPad", "iPod"];
+        var flag = true;
+        for (var v = 0; v < Agents.length; v++) {
+          if (userAgentInfo.indexOf(Agents[v]) > 0) {
+            flag = false;
+            break;
+          }
+        }
+        return flag;
+      }
+      if(!IsPC()){
+        var url = window.location.href;
+        var index = url.lastIndexOf("\/");
+        str = url.substring(index + 1,url.length);
+        if(str != 'index_m.html'){
+          window.location.href = 'http://guomiaotang.cn/index_m.html';
+        }
+      }
+       //全局变量
+      var GV = {
+          ROOT: "/",
+          WEB_ROOT: "/",
+          JS_ROOT: "statics/js/"
+      };
+    </script>
+    <script src="statics/js/wind.js"></script>
+    <style>
+      body, html {
+        height: auto;
+        overflow: auto;
+      }
+      .bg {
+        padding-bottom: 120px;
+        position: relative;
+      }
+      .con {
+        padding-bottom: 20px;
+        margin: 0 auto;
+        width: 1000px;
+        font-size: 16px;
+        line-height: 32px;
+        font-family: "微软雅黑";
+      }
+      .title-page {
+        margin-bottom: 0px;
+        width: 100%;
+        height: 112px;
+        line-height: 112px;
+        color: #9C2227;
+        font-size: 28px;
+        font-weight: bold
+      }
+      .row {
+        margin-bottom: 10px;
+      }
+      .map {
+        width: 100%;
+        height: 300px;
+      }
+      .amap-icon img {
+        width: 25px;
+        height: 34px;
+      }
+
+      .amap-marker-label {
+        position: relative;
+        left: -20px;
+        border: 0;
+        /* background-color: transparent; */
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3);
+      }
+      .info{
+        position: relative;
+        top: 0;
+        right: 0;
+        min-width: 0;
+        color: #9C2227;
+        font-size: 16px;
+        z-index: 999
+      }
+    </style>
+</head>
+  <body>
+    <!-- 头部  导航 -->
+    <div class="header">
+      <div class="header_ch clearfix">
+        <a class="logo fl" href="/"></a>
+        <ul class="nav fr clearfix">
+          <li class="">
+            <a href="index.html" target="">首页</a>
+          </li>
+          <li class="">
+            <a  href="about_me.html" target="">关于我们</a>
+          </li>
+          <li class="">
+            <a  href="answer.html" target="">QA解答</a>
+          </li>
+          <li class="">
+            <a class="bg" href="contact_us.html" target="">联系我们</a>
+          </li>
+        </ul>
+      </div>
+    </div> 
+    <!-- banner 区域 -->
+    <!--content 内容区域  -->
+    <div class="" style="padding-top: 62px">
+      <div class="bg" style="">
+        <div class="con">
+          <p class="title-page">联系我们</p>
+          <div class="row" >
+            <span>联系电话：</span>0086-010-58295833
+          </div>
+          <div class="row" >
+            <span>邮箱：</span>guomiaotang@lwpr.com.cn
+          </div>
+          <div class="row" style="margin-bottom: 20px;">
+            <span>地址：</span>江西省南昌市青山湖区民富路400号3层318-320
+          </div>
+          <div id="map" class="map"></div>
+        </div>
+        <div class="footer">
+            <img class="footer-logo" src="statics/images/logo.png" alt="">
+            <p class="mb-10">批准文号：京ICP备12036334号-2</p>
+            <p>咨询热线：0086-010-58295833</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  	
+<!--footer 底部  -->		
+</body>
+<script src="statics/js/admin.js"></script>
+<script>
+  $(function(){
+    var map = new AMap.Map('map', {
+      zoom: 16,//级别
+      center: [115.951728,28.706212],//中心点坐标
+      viewMode:'3D'//使用3D视图
+    });
+
+    var marker = new AMap.Marker({
+        position: map.getCenter(),
+        icon: 'statics/images/poi-marker-default.png',
+        offset: new AMap.Pixel(-13, -30)
+    });
+
+    marker.setMap(map);
+
+    // 设置鼠标划过点标记显示的文字提示
+    marker.setTitle('我是marker的title');
+
+    // 设置label标签
+    // label默认蓝框白底左上角显示，样式className为：amap-marker-label
+    marker.setLabel({
+        offset: new AMap.Pixel(20, 20),  //设置文本标注偏移量
+        content: "<div class='info'>江西世纪龙文生物科技有限公司</div>", //设置文本标注内容
+        direction: 'right' //设置文本标注方位
+    });
+  })
+</script>
+</html>

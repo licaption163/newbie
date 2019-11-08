@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>  
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>国妙堂</title>
+    <meta name="keywords" content="国妙堂">
+    <meta name="description" content="国妙堂"/>
+    <link rel="stylesheet" type="text/css" href="statics/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/page.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/index.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/media.css">
+    <script type="text/javascript" src="statics/js/jquery.min.js"></script>
+    <script type="text/javascript" src="statics/js/swiper.min.js"></script>
+    <script type="text/javascript" src="statics/js/swiper.animate.min.js"></script>
+    <script type="text/javascript" src="statics/js/index.js"></script>
+    <script type="text/javascript">
+      function IsPC() {
+        var userAgentInfo = navigator.userAgent;
+        var Agents = ["Android", "iPhone",
+          "SymbianOS", "Windows Phone",
+          "iPad", "iPod"];
+        var flag = true;
+        for (var v = 0; v < Agents.length; v++) {
+          if (userAgentInfo.indexOf(Agents[v]) > 0) {
+            flag = false;
+            break;
+          }
+        }
+        return flag;
+      }
+      if(!IsPC()){
+        var url = window.location.href;
+        var index = url.lastIndexOf("\/");
+        str = url.substring(index + 1,url.length);
+        if(str != 'index_m.html'){
+          window.location.href = 'http://guomiaotang.cn/index_m.html';
+        }
+      }
+    </script>
+</head>
+<script type="text/javascript">
+    //全局变量
+    var GV = {
+        ROOT: "/",
+        WEB_ROOT: "/",
+        JS_ROOT: "statics/js/"
+    };
+</script>
+<script src="statics/js/wind.js"></script>
+  <body>
+    <!-- 头部  导航 -->
+    <div class="header">
+      <div class="header_ch clearfix">
+        <a class="logo fl" href="/"></a>
+        <ul class="nav fr clearfix">
+          <li class="">
+            <a class="bg" href="index.html" target="">首页</a>
+          </li>
+          <li class="">
+            <a  href="about_me.html" target="">关于我们</a>
+          </li>
+          <li class="">
+            <a  href="answer.html" target="">QA解答</a>
+          </li>
+          <li class="">
+            <a  href="contact_us.html" target="">联系我们</a>
+          </li>
+        </ul>
+      </div>
+    </div> 
+    <!-- banner 区域 -->
+    <!--content 内容区域  -->
+    <div class="in_z">
+      <div class="swiper-container1">
+        <div class="swiper-wrapper">
+					<div class="swiper-slide in2" data-hash="in2">
+            <div class="bg">
+              <div class="in2_ch clearfix">
+                <div class="in2_fl fl" style="width: 68%">
+                  <div class="title-box ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="0.6s" style="width: 31%">
+                    <p class="in2_tit1 f50">医典记载</p>
+                    <!-- <p class="in2_tit2"></p> -->
+                  </div>
+                  <div class="in2_text">
+                    <p class="ani mb-30" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.9s" style="font-size: 16px;font-weight:bold;">熊胆粉位于四大名贵动物药之首（熊胆、虎骨、牛黄、麝香），最早见于《黄帝内经》，超过365部典籍记载，熊胆粉方剂1000多种，被誉为“药中黄金”“救命仙药”</p>
+                      <p class="ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.9s">
+                          唐代甄权《药性论》记载：“熊胆恶防己、地黄。主小儿五疳，杀虫，治恶疮。”<br>
+                          唐代《新修本草》记载：“疗时气热盛变为黄疸，暑日久痢，疳蠹心痛”。<br>
+                          唐代孙思邈《备急千金药方》，熊胆主要的用途是外涂治疗痔疮。 <br>
+                          明代《本草纲目》载：“熊胆味苦、性寒、无毒，归肝胆心经，有退热、清心、平肝、利胆、溶石、明目、杀虫之功效，用于惊风抽搐，外治目赤肿痛、咽喉肿痛。
+                      </p>
+                  </div>
+                </div>
+                <!-- <div class="in2_fr fr ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1.2s" swiper-animate-delay="0.3s">
+                  <span class="opa"></span>
+                  <img src="statics/images/pro_in2.png">
+                </div> -->
+              </div>
+            </div>
+					</div>
+      </div>
+    </div>
+			<div class="swiper-pagination"></div>
+		<!-- </div> -->
+	</div>
+	
+      <!--footer 底部  -->
+      
+		
+    </body>
+    <script src="statics/js/admin.js"></script>
+</html>

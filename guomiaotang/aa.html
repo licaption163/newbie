@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+  <head>  
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>国妙堂</title>
+    <meta name="keywords" content="国妙堂">
+    <meta name="description" content="国妙堂"/>
+    <link rel="stylesheet" type="text/css" href="statics/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/page.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/animate.min.css">
+    <link rel="stylesheet" href="statics/js/libs/layui/css/layui.css"  media="all">
+    <link rel="stylesheet" type="text/css" href="statics/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/index.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/media.css">
+    <script type="text/javascript" src="statics/js/jquery.min.js"></script>
+    <script type="text/javascript" src="statics/js/swiper.min.js"></script>
+    <script type="text/javascript" src="statics/js/swiper.animate.min.js"></script>
+    <script type="text/javascript" src="statics/js/index.js"></script>
+    <script type="text/javascript">
+      function IsPC() {
+        var userAgentInfo = navigator.userAgent;
+        var Agents = ["Android", "iPhone",
+          "SymbianOS", "Windows Phone",
+          "iPad", "iPod"];
+        var flag = true;
+        for (var v = 0; v < Agents.length; v++) {
+          if (userAgentInfo.indexOf(Agents[v]) > 0) {
+            flag = false;
+            break;
+          }
+        }
+        return flag;
+      }
+      if(!IsPC()){
+        var url = window.location.href;
+        var index = url.lastIndexOf("\/");
+        str = url.substring(index + 1,url.length);
+        if(str != 'index_m.html'){
+          window.location.href = 'http://guomiaotang.cn/index_m.html';
+        }
+      }
+      //全局变量
+      var GV = {
+          ROOT: "/",
+          WEB_ROOT: "/",
+          JS_ROOT: "statics/js/"
+      };
+    </script>
+    <script src="statics/js/wind.js"></script>
+    <style>
+      .con {
+        margin: 0 auto;
+        padding-top: 50px;
+        width: 1200px;
+      }
+      @media (min-width: 1440px) {
+        .con {
+          padding-top: 90px;
+        }
+      }
+      .pic {
+        width: 470px;
+        height: 332px;
+        background: #ccc;
+      }
+      .list {
+        margin-bottom: 20px;
+        box-sizing: border-box;
+        width: 100%;
+      }
+      .list .item {
+        margin-bottom: 14px;
+        width: 100%;
+        height: 26px;
+        line-height: 26px;
+      }
+      .icon-circle {
+        margin-top: 8px;
+        margin-right: 8px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #9C2227;
+      }
+      .con .title {
+        width: 70%;
+        height: 100%;
+        font-size: 18px;
+        font-family: PingFangSC-Regular,PingFangSC;
+        color: #9C2227;
+        text-align: left;
+      }
+      .con .title:hover {
+        text-decoration: underline
+      }
+      .con .times {
+        width: 100px;   
+        height: 100%;
+        text-align: right;
+        color: #888888;
+        font-size: 11px;
+      }
+      .more {
+        width: 100%;
+        text-align: right;
+        font-size: 16px;
+        color: #9C2227;
+      }
+      .more:hover {
+        text-decoration: underline;
+      }
+      /* .layui-laypage a:hover, .layui-laypage .layui-laypage-last:hover, .layui-laypage .layui-laypage-next:hover, .layui-laypage .layui-laypage-prev:hover {
+        coloe: #9C2227 !important
+      } */
+    </style>
+</head>
+
+  <body>
+    <!-- dynamic  企业动态 -->
+    <!-- 头部  导航 -->
+    <div class="header">
+      <div class="header_ch clearfix">
+        <a class="logo fl" href="/"></a>
+        <ul class="nav fr clearfix">
+          <li class="">
+            <a class="bg" href="index.html" target="">首页</a>
+          </li>
+          <li class="">
+            <a  href="about_me.html" target="">关于我们</a>
+          </li>
+          <li class="">
+            <a  href="answer.html" target="">QA解答</a>
+          </li>
+          <li class="">
+            <a  href="contact_us.html" target="">联系我们</a>
+          </li>
+        </ul>
+      </div>
+    </div> 
+    <!-- banner 区域 -->
+    <!--content 内容区域  -->
+    <div class="in_z">
+      <div class="in2">
+        <div class="bg" style="height: 100vh">
+          <div class="con">
+            <!-- <div class="fr list-box"> -->
+              <ul class="list js_list">
+                <!-- <li class="item clearfix">
+                  <span class="fl icon-circle"></span>
+                  <p class="fl title">文本文本文本文本文本文本文本文本文本文本文</p>
+                  <span class="fr times">2019-3-23</span>
+                </li>
+                <li class="item clearfix">
+                  <span class="fl icon-circle"></span>
+                  <p class="fl title">文本文本文本文本文本文本文本文本文本文本文</p>
+                  <span class="fr times">2019-3-23</span>
+                </li>
+                <li class="item clearfix">
+                  <span class="fl icon-circle"></span>
+                  <p class="fl title">文本文本文本文本文本文本文本文本文本文本文</p>
+                  <span class="fr times">2019-3-23</span>
+                </li> -->
+              </ul>            
+              <div class="clearfix">
+                <div class="fr" id="demo2"></div>
+              </div>
+          </div>
+        </div>
+      </div>       
+    </div>
+    <script src="statics/js/libs/layui/layui.js"></script>
+    <script>
+      $(function(){
+        layui.use(['laypage'], function(){
+          var laypage = layui.laypage;
+
+          $.ajax({
+            //请求方式为get
+            type:"GET",
+            //json文件位置
+            url:"statics/js/dynamic.json?timestamp=" + new Date().getTime(),
+            //返回数据格式为json
+            dataType: "json",
+            crossDomain: true,
+            cache : false,
+            //请求成功完成后要执行的方法
+            success: function(result){
+              var data = result.data;
+              // 使用$.each方法遍历返回的数据date,插入到id为#result中
+              var str="";
+              $.each(result.data, function(index, val){
+                $.each(val.list, function(i, item){
+                  str += '<li class="item clearfix">\
+                            <span class="fl icon-circle"></span>\
+                            <a class="fl title txtElip" href="article.html?type='+val.type +'&id='+ item.id +'" data-type="'+ val.type +'">'+ item.title +'</a>\
+                            <span class="fr times">2019-3-23</span>\
+                          </li>'
+                })
+                
+              })
+              $(".js_list").append(str);
+              // 分页
+              laypage.render({
+                elem: 'demo2',
+                count: 100, //页码总条数
+                theme: '#9C2227',
+                jump: function(obj, first){ //跳转方法
+                  if(!first){      //如果不是第一次初始化
+                    console.log('第 '+ obj.curr +' 页');
+                  }
+                }
+              });
+            }
+          })
+        })
+      })
+    </script>
+    </body>
+    <script src="statics/js/admin.js"></script>
+</html>

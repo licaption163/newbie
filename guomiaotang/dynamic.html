@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <head>  
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>国妙堂</title>
+    <meta name="keywords" content="国妙堂">
+    <meta name="description" content="国妙堂"/>
+    <link rel="stylesheet" type="text/css" href="statics/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/page.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/index.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/media.css">
+    <script type="text/javascript" src="statics/js/jquery.min.js"></script>
+    <script type="text/javascript" src="statics/js/swiper.min.js"></script>
+    <script type="text/javascript" src="statics/js/swiper.animate.min.js"></script>
+    <script type="text/javascript" src="statics/js/index.js"></script>
+    <script type="text/javascript">
+function getUriParam(name){
+    var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if(r!=null)return  unescape(r[2]); return null;
+  }
+
+      function IsPC() {
+        var userAgentInfo = navigator.userAgent;
+        var Agents = ["Android", "iPhone",
+          "SymbianOS", "Windows Phone",
+          "iPad", "iPod"];
+        var flag = true;
+        for (var v = 0; v < Agents.length; v++) {
+          if (userAgentInfo.indexOf(Agents[v]) > 0) {
+            flag = false;
+            break;
+          }
+        }
+        return flag;
+      }
+      if(!IsPC()){
+        var url = window.location.href;
+        var index = url.lastIndexOf("\/");
+        str = url.substring(index + 1,url.length);
+        if(str != 'index_m.html'){
+          window.location.href = 'http://guomiaotang.cn/index_m.html';
+        }
+      }
+      //全局变量
+      var GV = {
+          ROOT: "/",
+          WEB_ROOT: "/",
+          JS_ROOT: "statics/js/"
+      };
+    </script>
+    <script src="statics/js/wind.js"></script>
+    <style>
+      .con {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0 auto;
+        width: 1200px;
+      }
+      .pic {
+        width: 470px;
+        height: 332px;
+        background: #ccc;
+      }
+      .list {
+        padding: 20px 0;
+        box-sizing: border-box;
+        height: 332px;
+        width: 619px;
+      }
+      .list .item {
+        margin-bottom: 14px;
+        width: 100%;
+        height: 26px;
+        line-height: 26px;
+      }
+      .icon-circle {
+        margin-top: 8px;
+        margin-right: 8px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #9C2227;
+      }
+      .con .title {
+        width: 436px;
+        height: 100%;
+        font-size: 18px;
+        font-family: PingFangSC-Regular,PingFangSC;
+        color: #9C2227;
+text-align: left;
+      }
+      .con .title:hover {
+        text-decoration: underline
+      }
+      .con .times {
+        width: 100px;   
+        height: 100%;
+        text-align: right;
+        color: #888888;
+        font-size: 11px;
+      }
+.more {
+        width: 100%;
+        text-align: right;
+        font-size: 16px;
+        color: #9C2227;
+      }
+      .more:hover {
+        text-decoration: underline;
+      }
+      .list-box {
+        text-align: right;
+      }
+    </style>
+</head>
+
+  <body>
+    <!-- dynamic  企业动态 -->
+    <!-- 头部  导航 -->
+    <div class="header">
+      <div class="header_ch clearfix">
+        <a class="logo fl" href="/"></a>
+        <ul class="nav fr clearfix">
+          <li class="">
+            <a class="bg" href="index.html" target="">首页</a>
+          </li>
+          <li class="">
+            <a  href="about_me.html" target="">关于我们</a>
+          </li>
+          <li class="">
+            <a  href="answer.html" target="">QA解答</a>
+          </li>
+          <li class="">
+            <a  href="contact_us.html" target="">联系我们</a>
+          </li>
+        </ul>
+      </div>
+    </div> 
+    <!-- banner 区域 -->
+    <!--content 内容区域  -->
+    <div class="in_z">
+      <div class="in2">
+        <div class="bg" style="height: 100vh">
+          <div class="con clearfix">
+            <div class="fl pic"></div>
+              <div class="fr list-box">
+              <ul class="list js_list">
+              <!-- <li class="item clearfix">
+                <span class="fl icon-circle"></span>
+                <p class="fl title">文本文本文本文本文本文本文本文本文本文本文</p>
+                <span class="fr times">2019-3-23</span>
+              </li>
+              <li class="item clearfix">
+                <span class="fl icon-circle"></span>
+                <p class="fl title">文本文本文本文本文本文本文本文本文本文本文</p>
+                <span class="fr times">2019-3-23</span>
+              </li>
+              <li class="item clearfix">
+                <span class="fl icon-circle"></span>
+                <p class="fl title">文本文本文本文本文本文本文本文本文本文本文</p>
+                <span class="fr times">2019-3-23</span>
+              </li> -->
+            </ul>
+              <a class="more" href="dynamic_list.html?cid=7">查看更多>></a>
+          </div>
+        </div>
+      </div>       
+    </div>
+<script>
+      $(function(){
+	var cid = getUriParam('cid');
+        $.ajax({
+          type:"GET",
+          url:"/system/api.php?op=article&cid="+cid,
+          dataType: "json",
+          crossDomain: true,
+          cache : false,
+          success: function(result){
+            var data = result.result;
+            // 使用$.each方法遍历返回的数据date,插入到id为#result中
+            var str="";
+              $.each(data, function(i, item){
+                str += '<li class="item clearfix">\
+                          <span class="fl icon-circle"></span>\
+                          <a class="fl title txtElip" href="article.html?id='+ item.id +'">'+ item.title +'</a>\
+                          <span class="fr times">'+item.inputtime+'</span>\
+                        </li>'
+              })
+            $(".js_list").append(str);
+          }
+        })
+      })
+    </script>
+    <script src="statics/js/admin.js"></script>
+</html>

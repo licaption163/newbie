@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>  
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>国妙堂</title>
+    <meta name="keywords" content="国妙堂">
+    <meta name="description" content="国妙堂"/>
+    <link rel="stylesheet" type="text/css" href="statics/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/page.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/index.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/media.css">
+    <script type="text/javascript" src="statics/js/jquery.min.js"></script>
+    <script type="text/javascript" src="statics/js/swiper.min.js"></script>
+    <script type="text/javascript" src="statics/js/swiper.animate.min.js"></script>
+    <script type="text/javascript" src="statics/js/index.js"></script>
+    <script type="text/javascript">
+      function IsPC() {
+        var userAgentInfo = navigator.userAgent;
+        var Agents = ["Android", "iPhone",
+          "SymbianOS", "Windows Phone",
+          "iPad", "iPod"];
+        var flag = true;
+        for (var v = 0; v < Agents.length; v++) {
+          if (userAgentInfo.indexOf(Agents[v]) > 0) {
+            flag = false;
+            break;
+          }
+        }
+        return flag;
+      }
+      if(!IsPC()){
+        var url = window.location.href;
+        var index = url.lastIndexOf("\/");
+        str = url.substring(index + 1,url.length);
+        if(str != 'index_m.html'){
+          window.location.href = 'http://guomiaotang.cn/index_m.html';
+        }
+      }
+      //全局变量
+      var GV = {
+          ROOT: "/",
+          WEB_ROOT: "/",
+          JS_ROOT: "statics/js/"
+      };
+    </script>
+    <script src="statics/js/wind.js"></script>
+    <style>
+      body, html {
+        overflow: auto;
+      }
+      .in2 .bg {
+        padding-bottom: 300px;
+        height: auto;
+	min-height:100%;
+      }
+      .mb-10{
+        margin-bottom: 10px;
+      }
+      .mb-50{
+        margin-bottom: 50px;
+      }
+      .con {
+        margin:0 auto;
+        padding-top: 50px;
+        width: 1200px;
+      }
+      .title-page {
+        margin-bottom: 0px;
+        width: 100%;
+        height: 112px;
+        line-height: 112px;
+        color: #9C2227;
+        font-size: 28px;
+        font-weight: bold
+      }
+      .title-chain {
+        height: 70px;
+        line-height: 80px;
+      }
+      .con-txt {
+        font-size: 16px;
+        line-height: 32px;
+        font-family: "微软雅黑";
+        text-align: center
+      }
+      .con-txt p {
+        text-align: left;
+        margin-bottom: 20px;
+      }
+      .con-txt .mb-10{
+        margin-bottom: 20px;
+      }
+      .subtitle {
+        height: 28px;
+        line-height: 28px;
+        color: #9C2227;
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+      img {
+        margin-bottom: 20px;
+        width: auto;
+      }
+      .exemption {
+        font-size: 14px;
+        color: #1f1f1f;
+        line-height: 16px;
+      }
+    </style>
+    
+</head>
+  
+  <body>
+    <!-- 头部  导航 -->
+    <div class="header">
+      <div class="header_ch clearfix">
+        <a class="logo fl" href="/"></a>
+        <ul class="nav fr clearfix">
+          <li class="">
+            <a class="bg" class="" href="index.html" target="">首页</a>
+          </li>
+          <li class="">
+            <a href="about_me.html" target="">关于我们</a>
+          </li>
+          <li class="">
+            <a  href="answer.html" target="">QA解答</a>
+          </li>
+          <li class="">
+            <a  href="contact_us.html" target="">联系我们</a>
+          </li>
+        </ul>
+      </div>
+    </div> 
+    <!-- banner 区域 -->
+    <!--content 内容区域  -->
+    <div class="in_z in2">
+      <div class="bg">
+        <div class="con">
+          <p class="title-page js_title">关于我们</p>
+          <div class="con-txt mb-50 js_con">
+            <!-- <p>江西国妙堂作为江西省中医药产业的一员，积极响应省委省政府中医药强省战略，积极推动产业链升级，力争将珍稀动物药（熊胆、麝香）做成江西中药的核心产业，实现复兴中医药大健康产业中国梦!</p> -->
+          </div>
+          <p class="exemption">本文为囯妙堂(www.guomiaotang.cn)转载文章，若文章作者或编辑认为其作品不宜上网供大家浏览或不应无偿使用，认为侵犯了您的权利，请致电：010-58295833。</p>
+        </div>
+      </div>
+      
+	</div>
+	
+      <!--footer 底部  -->
+      
+		
+    </body>
+    <script src="statics/js/admin.js"></script>
+    <script>
+$(function(){
+            var id = getUriParam("id") || 0;
+          $.ajax({
+            type:"GET",
+            url:"/system/api.php?op=article&nid="+id,
+            dataType: "json",
+            crossDomain: true,
+            cache : false,
+            success: function(result){
+              var data = result.result;
+              $(".js_title").html(data.title)
+              $(".js_con").html("<p>"+data.content+"</p>")
+            }
+          })
+        })
+        function getUriParam(name){
+          var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+          var r = window.location.search.substr(1).match(reg);
+          if(r!=null)return  unescape(r[2]); return null;
+        }
+      </script>
+</html>

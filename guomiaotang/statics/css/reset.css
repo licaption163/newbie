@@ -1,0 +1,101 @@
+*{
+  padding: 0; 
+  margin: 0;
+}
+body, html {
+  width:100%;
+  height: 100%;
+  color: #333;
+  font-size: 14px;
+  list-style-type: none;
+  font-family:PingFangSC;
+  overflow: hidden;
+  background: #fff;
+}
+/* body {
+  background: url(../images/index_bg.png) no-repeat 1200px center #fff;
+  background-size: 100%;
+} */
+ul,li{list-style: none;}
+a { text-decoration: none; outline: none; blr:expression(this.onFocus=this.blur())}
+a:hover { text-decoration: none; }
+i, b{ font-style: normal; font-weight: normal;}
+img{width: 100%;vertical-align: top;}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+/* 清浮动 */
+.clearfix:after {
+  visibility:hidden;
+  display:block;
+  font-size:0;
+  content:" ";
+  clear:both;
+  height:0;
+}
+.clearfix {
+  zoom:1; /* for IE6 IE7 */
+}
+.f12 {
+  font-size: 12px;
+}
+.f14 {
+  font-size: 14px;
+}
+.f18 {
+  font-size: 18px;
+}
+.f26 {
+  font-size: 26px;
+}
+.f30 {
+  font-size: 30px;
+}
+.f34 {
+  font-size:34px;
+}
+.f50 {
+  font-size: 50px
+}
+.mb-10 {
+  margin-bottom: 10px;
+}
+.mb-20 {
+  margin-bottom: 20px;
+}
+.mb-30 {
+  margin-bottom: 30px;
+}
+.pos-re {
+  position: relative;
+}
+/* 移动端 */
+.pt-16-m {
+  padding-top: 0.16rem;
+  box-sizing: border-box
+}
+.pt-34-m {
+  padding-top: 0.34rem;
+  box-sizing: border-box
+}
+.pt-38-m {
+  padding-top: 0.38rem;
+  box-sizing: border-box
+}
+.plr-10-m {
+  padding: 0 0.1rem;
+  box-sizing: border-box
+}
+.mb20-m {
+  margin-bottom: 0.2rem;
+}
+.mb28-m {
+  margin-bottom: 0.28rem;
+}
+.txt-c {
+  text-align: center;
+}
+.txtElip{ text-overflow:ellipsis; white-space:nowrap; overflow:hidden; }

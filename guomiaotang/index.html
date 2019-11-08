@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>  
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>国妙堂</title>
+    <meta name="keywords" content="国妙堂">
+    <meta name="description" content="国妙堂"/>
+    <link rel="stylesheet" type="text/css" href="statics/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/page.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/index.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/media.css">
+    <script type="text/javascript" src="statics/js/jquery.min.js"></script>
+    <script type="text/javascript" src="statics/js/swiper.min.js"></script>
+    <script type="text/javascript" src="statics/js/swiper.animate.min.js"></script>
+    <script type="text/javascript" src="statics/js/index.js"></script>
+</head>
+<script type="text/javascript">
+    function IsPC() {
+        var userAgentInfo = navigator.userAgent;
+        var Agents = ["Android", "iPhone",
+            "SymbianOS", "Windows Phone",
+            "iPad", "iPod"];
+        var flag = true;
+        for (var v = 0; v < Agents.length; v++) {
+            if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                flag = false;
+                break;
+            }
+        }
+        return flag;
+    }
+    if(!IsPC()){
+        var url = window.location.href;
+        var index = url.lastIndexOf("\/");
+        str = url.substring(index + 1,url.length);
+        if(str != 'index_m.html'){
+            window.location.href = 'http://guomiaotang.cn/index_m.html';
+        }
+    }
+    //全局变量
+    var GV = {
+        ROOT: "/",
+        WEB_ROOT: "/",
+        JS_ROOT: "statics/js/"
+    };
+</script>
+<script src="statics/js/wind.js"></script>
+  <body>
+    <!-- 头部  导航 -->
+    <div class="header">
+      <div class="header_ch clearfix">
+        <a class="logo fl" href="/"></a>
+        <ul class="nav fr clearfix">
+          <li class="">
+            <a class="bg" href="index.html" target="">首页</a>
+          </li>
+          <li class="">
+            <a  href="about_me.html" target="">关于我们</a>
+          </li>
+          <li class="">
+            <a  href="answer.html" target="">QA解答</a>
+          </li>
+          <li class="">
+            <a  href="contact_us.html" target="">联系我们</a>
+          </li>
+        </ul>
+      </div>
+    </div> 
+    <!-- banner 区域 -->
+    <!--content 内容区域  -->
+    <div class="in_z">
+      <div class="swiper-container1">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide in1" data-hash="in1">
+            <div class="bg">
+              <span class="opa"></span>
+              <div class="slogan-box">
+                <div class="logo-banner"></div>
+                <p class="slogan f34">养肝护肝上品</p>
+                <p class="slogan f34">国妙堂熊胆粉</p>
+              </div>
+            </div>
+            <ul class="pro-list ">
+              <li class="fl item">
+                <div class="opa">
+                  <div class="opa-con">
+                      <p class="title f26">药中黄金</p>
+                      <div class="labels f14">
+                        <a href="article_yd.html">医典记载</a>
+                        <a href="article_my.html">名医力荐</a>
+                        <a href="example.html">应用案例</a>
+                      </div>
+                      <!-- <div class="labels f14">
+                        <a href="javascript:;">医学权威证言</a>
+                      </div> -->
+                  </div>
+                </div>             
+              </li>
+              <li class="fl item">
+                <div class="opa">
+                  <div class="opa-con">
+                    <p class="title f26">金胆臻品</p>
+                    <div class="labels f14">
+                      <a href="javascript:;">处方药</a>
+                      <a href="javascript:;">OTC</a>
+                      <a href="javascript:;">产品科研</a>
+                      <a href="javascript:;">其他系列</a>
+                    </div>
+                    <div class="labels f14">
+                      <a href="article_qz.html">“七最工程”打造行业真正金胆级臻品</a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="fl item">
+                <div class="opa">
+                  <div class="opa-con">
+                    <p class="title f26">最新动态</p>
+                    <div class="labels f14">
+                      <a href="/dynamic.html?cid=6">企业动态</a>
+                      <a href="/dynamic.html?cid=7">中医药动态</a>                     
+                      <a href="/dynamic.html?cid=8">行业动态</a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+					<div class="swiper-slide in2" data-hash="in2">
+            <div class="bg">
+              <div class="in2_ch clearfix">
+                <div class="in2_fl fl">
+                  <div class="title-box ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="1s" swiper-animate-delay="0.6s">
+                    <p class="in2_tit1 f50">药中黄金</p>
+                    <p class="in2_tit2"></p>
+                  </div>
+                  <div class="in2_text">
+                    <p class="ani mb-30" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.9s">熊胆粉位于四大名贵动物药之首（熊胆、虎骨、牛黄、麝香），最早见于《黄帝内经》，超过365部典籍记载，熊胆粉方剂1000多种，被誉为“药中黄金”“救命仙药”</p>
+                      <p class="ani" swiper-animate-effect="fadeIn" swiper-animate-duration="1s" swiper-animate-delay="0.9s">
+                        权威医学专家和中医药大师力荐熊胆粉：
+                        保肝护胆-用于重大疾病的治疗，熊胆粉效果显著且不可替代！
+                      </p>
+                  </div>
+                </div>
+                <div class="in2_fr fr ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1.2s" swiper-animate-delay="0.3s">
+                  <span class="opa"></span>
+                  <img src="statics/images/pro_in2.png">
+                </div>
+              </div>
+            </div>
+					</div>
+					<div class="swiper-slide in3" data-hash="in3">
+						<div class="in3_ch">
+							<div class="dec-box ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.8s" swiper-animate-delay="0.3s">
+                <p class="title f30 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="1.5s">金胆臻品</p>
+                <p class="txt f18 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="1.8s">
+                  1.熊胆粉位居四大名贵动物药的之首（熊胆粉、虎骨、牛黄、麝香）<br>
+                  2.亚洲黑熊（综合提取熊胆汁质量和数量，亚洲黑熊最佳）<br>
+                  3.超50年养殖团队，最优良环境，科学营养配方，标准规模化养殖<br>
+                  4.自创“无管引流取胆”技术，安全、卫生、人性化、高标准<br>
+                  5.采取国际领先的FD冻干技术（-40°C冷冻干燥冷冻技术）<br>
+                  6.国妙堂产品中的熊胆粉指标成分（牛磺熊去氧胆酸）含量35%以上，远远超过部颁标准23%，真正名符其实的金胆等级<br>
+                  7.养肝护肝上品，打造高端动物药第一品牌</p>
+              </div>
+              <div class="pic ani" swiper-animate-effect="fadeInRight" swiper-animate-duration="0.8s" swiper-animate-delay="0.6s">
+                <img src="statics/images/pro_in3.png" alt="">
+                <div class="icon-right-angle"></div>
+                <span class="opa"></span>
+              </div>				
+            </div>
+					</div>
+					<div class="swiper-slide in4" data-hash="in4">
+						<div class="in4_ch view-port">
+                <div class="in4_ch">
+                    <div class="in4_dec_box ani" swiper-animate-effect="fadeInLeft" swiper-animate-duration="0.8s" swiper-animate-delay="0.3s">
+                      <p class="title f30 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="1.8s">最新动态</p>
+                      <p class="txt f18 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1s" swiper-animate-delay="2.1s">行业内最新动态</p>
+                    </div>
+                    <div class="pic1 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.8s" swiper-animate-delay="0.6s">
+                      <img src="statics/images/pro_in3.png" alt="">
+                      <span class="opa"></span>
+                    </div>
+                    <div class="pic2 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.8s" swiper-animate-delay="0.9s">
+                      <img src="statics/images/pro_in3.png" alt=""> 
+                      <span class="opa"></span>
+                    </div>
+                    <div class="pic3 ani" swiper-animate-effect="zoomIn" swiper-animate-duration="0.8s" swiper-animate-delay="1.2s">
+                      <i class="icon-right-angle"></i>
+                      <img src="statics/images/pro_in3.png" alt=""> 
+                      <span class="opa"></span> 
+                    </div>				
+                  </div>
+						</div>
+					</div>
+					<div class="swiper-slide in6" data-hash="in5">
+						<div class="in5_ch">
+							<div class="ercode">
+                <img src="statics/images/ercode.jpg" alt="">
+              </div>
+              <p class="txt">扫面上方二维码<br> 关注我们</p>
+					</div>
+					<div class="footer">
+            <img class="footer-logo" src="statics/images/logo.png" alt="">
+            <!-- <div class="labels mb-10">
+              <span>哈哈哈哈</span>/
+              <span>哈哈哈哈</span>/
+              <span>哈哈哈哈</span>/
+              <span>哈哈哈哈</span>
+            </div> -->
+            <p class="mb-10">批准文号：京ICP备12036334号-2</p>
+            <p>咨询热线：0086-010-58295833</p>
+				</div>
+      </div>
+    </div>
+			<div class="swiper-pagination"></div>
+		<!-- </div> -->
+	</div>
+    </body>
+    <script src="statics/js/admin.js"></script>
+</html>

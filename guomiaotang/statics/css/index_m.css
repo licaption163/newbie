@@ -1,0 +1,350 @@
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+.header {
+  padding-top: 0.08rem;
+  width: 100%;
+  min-width: 100%;
+  height: 0.34rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  background: #fff;
+  box-sizing: border-box;
+}
+.nav li {
+  padding-right: 0.1rem;
+  height: 100%;
+  float: left;
+  line-height: 0.26rem;
+}
+.nav li a {
+  display: inline-block;
+  font-size: 12px;
+  color: #333;
+  padding: 0px 0.08rem;
+  line-height: 0.26rem;
+  box-sizing: border-box
+}
+.nav li a:hover, .nav li a.bg {
+  color: #9C2227;
+  border-bottom: 2px solid #9C2227;
+}
+
+/* 头部 end*/
+.swiper-container1 {
+  width:100%;
+  height: 100%;
+}
+/* 内容区域 start */
+.container {
+  padding-top: 0.34rem;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+.con {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-size: 12px;
+  color: #000;
+}
+/* 第一屏 */
+.in1 {
+  background: url(../images/bg_mobile_1.png) no-repeat bottom center;
+  background-size: 100%;;
+}
+.in2 {
+  background: url(../images/bg_mobile2.png) no-repeat top center;
+  background-size: cover;
+}
+.in3 {
+  background: url(../images/bg_mobile3.png) no-repeat top center;
+  background-size: cover;
+}
+.in4 {
+  background: url(../images/bg_mobile4.png) no-repeat top center;
+  background-size: cover;
+}
+.in5 {
+  background: url(../images/bg_mobile5.png) no-repeat top center;
+  background-size: cover;
+}
+.in1 .logo {
+  width: 2.38rem;
+}
+.in1 .labels {
+  margin-bottom: 0.14rem;
+  width:100%;
+  height: 0.44rem;
+  line-height: 0.44rem;
+  font-size: 16px;
+  font-weight:500;
+}
+.in1 .labels a {
+  display: inline-block;
+  height: 100%;
+  color:#EBBB34;
+}
+.in1 .labels a:after {
+  position: absolute;
+  right: 0;
+  top: 32%;
+  bottom: 32%;
+  content: '';
+  width: 2px;
+  border-radius: 1px;
+  background: #EBBB34;
+}
+.in1 .labels a:last-child:after {
+  position: absolute;
+  right: 0;
+  top: 20%;
+  bottom: 20%;
+  content: '';
+  width: 2px;
+  border-radius: 1px;
+  background: none;
+}
+.in1 .pro_m1 {
+  margin: 0 auto 0.26rem;
+  width: 2.1rem;
+  height: 1.16rem;
+}
+.in1 .pro_m1 img {
+  width: 100%;
+  height: 100%;
+}
+.in1 .pro_m1 .opa {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3)
+}
+.in1 .slogan {
+  width: 100%;
+  height: 0.68rem;
+  line-height: 0.34rem;
+  font-size: 24px;
+  color: #EBBB34
+}
+.icon_arrow_down {
+  position: absolute;
+  left: 50%;
+  bottom: 0.44rem;
+  margin-left: -0.12rem;
+  width: 0.24rem;
+  height: 0.16rem;
+  background: url(../images/icon_arrow_down.png) no-repeat center;
+  background-size: 100%;
+}
+
+.animate-bounce-down {
+  -webkit-animation: bounce-down 1.2s linear infinite;
+  animation: bounce-down 1.2s linear infinite;
+}
+@keyframes bounce-down {
+  0% {transform: translateY(0);}
+  60% {transform: translateY(0.06rem);}
+  100% {transform: translateY(0);}
+}
+@-webkit-keyframes bounce-down {
+  0% {-webkit-transform: translateY(0); }
+  60% {-webkit-transform: translateY(0.06rem);}
+  100% {-webkit-transform: translateY(0);}
+}
+
+/* 第一屏 end */
+/* 第二屏 start */
+.in2 .title, .in3 .title, .in4 .title {
+  width: 100%;
+  height: 0.64rem;
+  line-height: 0.64rem;
+  font-size: 24px;
+}
+.in2 .text1 {
+  margin-bottom: 0.56rem;
+  padding: 0 0.64rem;
+  width: 100%;
+  line-height: 18px;
+  box-sizing: border-box;
+  text-align: left;
+}
+.in2 .pic-box {
+  margin: 0 auto;
+  width: 2.46rem;
+  height: 2.2rem;
+}
+.in2 .pic1 {
+  position: absolute;
+  top: 0.86rem;
+  right: 0;
+  width: 0.7rem;
+  height: 0.7rem;
+}
+.in2 .pic2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1.1rem;
+  height: 1.1rem;
+}
+.in2 .pic3 {
+  position: absolute;
+  top: 0.64rem;
+  right: 0.46rem;
+  width: 1.56rem;
+  height: 1.56rem;
+}
+.in2 .pic img {
+  width: 100%;
+  height: 100%;
+}
+.in2 .pic .opa {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3)
+}
+/* 第二屏 end */
+/* 第三屏 start */
+.in3 .pic {
+  margin: 0 auto 0.24rem;
+  width: 2.92rem;
+  height: 2.92rem;
+}
+.in3 .pic img {
+  width: 100%;
+  height: 100%;
+}
+.in3 .pic .opa {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3)
+}
+.in3 .txt{
+  margin: 0 auto;
+  width: 2.46rem;
+  line-height: 18px;
+  text-align: left;
+}
+/* 第三屏 end */
+/* 第四屏 start */
+.in4 .pic {
+  margin: 0 auto 0.32rem;
+  width: 2.92rem;
+  height: 1.3rem;
+}
+.in4 .pic img {
+  width: 100%;
+  height: 100%;
+}
+.in4 .pic .opa {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3)
+}
+.in4 .txt {
+  margin: 0 auto;
+  padding: 0.19rem 0.24rem;
+  width: 2.2rem;
+  height: 1.65rem;
+  line-height: 18px;
+  text-align: left;
+  box-sizing: border-box;
+  background: #fff;
+}
+/* 第四屏 end */
+/* 第5屏 start */
+.in5 {
+  padding-top: 1.52rem;
+  box-sizing: border-box;
+}
+.ercode-box {
+  margin: 0 auto;
+  width: 1.6rem;
+}
+.ercode-box .ercode {
+  margin-bottom: 0.15rem;
+  width: 100%;
+  height: 100%;
+}
+.ercode-box .txt {
+  width:100%;
+  height: 0.36rem;
+  line-height: 0.18rem;
+  color: #000;
+  font-size: 12px;
+}
+.ercode-box {
+  margin: 0 auto;
+  width: 1.6rem;
+}
+.footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding-top: 0.1rem;
+  /* padding-bottom: 0.1rem; */
+  width: 100%;
+  /* height: 0.8rem; */
+  background: #000;
+  color: #CBA76D;
+  font-size:12px;
+}
+.footer-logo {
+  margin-bottom: 0.1rem;
+  width: 0.41rem;
+}
+.footer .labels {
+  height: 0.16rem;
+  line-height: 0.14rem;
+}
+.footer .labels span {
+  display: inline-block;
+  padding: 0 0.1rem;
+  height: 100%;
+}
+.footer .copyright {
+  width: 200%;
+  font-size: 20px;
+  line-height: 0.24rem;
+  transform: scale(0.5);
+  -ms-transform: scale(0.5);
+  -webkit-transform: scale(0.5);
+  -o-transform: scale(0.5);
+  -moz-transform: scale(0.5);
+  transform-origin: 0 0 0;
+  -ms-transform-origin: 0 0 0;
+  -webkit-transform-origin: 0 0 0;
+  -o-transform-origin: 0 0 0;
+  -moz-transform-origin: 0 0 0;
+}
+.footer .tel {
+  width: 200%;
+  font-size: 20px;
+  line-height: 0.24rem;
+  transform: scale(0.5);
+  -ms-transform: scale(0.5);
+  -webkit-transform: scale(0.5);
+  -o-transform: scale(0.5);
+  -moz-transform: scale(0.5);
+  transform-origin: 0 0 0;
+  -ms-transform-origin: 0 0 0;
+  -webkit-transform-origin: 0 0 0;
+  -o-transform-origin: 0 0 0;
+  -moz-transform-origin: 0 0 0;
+}
+/* 第5屏 end */

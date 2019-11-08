@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+  <head>  
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>国妙堂</title>
+    <meta name="keywords" content="国妙堂">
+    <meta name="description" content="国妙堂"/>
+    <link rel="stylesheet" type="text/css" href="statics/css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/page.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/index.css">
+    <link rel="stylesheet" type="text/css" href="statics/css/media.css">
+    <script type="text/javascript" src="statics/js/jquery.min.js"></script>
+    <script type="text/javascript" src="statics/js/swiper.min.js"></script>
+    <script type="text/javascript" src="statics/js/swiper.animate.min.js"></script>
+    <script type="text/javascript" src="statics/js/index.js"></script>
+    <script type="text/javascript">
+      function IsPC() {
+        var userAgentInfo = navigator.userAgent;
+        var Agents = ["Android", "iPhone",
+          "SymbianOS", "Windows Phone",
+          "iPad", "iPod"];
+        var flag = true;
+        for (var v = 0; v < Agents.length; v++) {
+          if (userAgentInfo.indexOf(Agents[v]) > 0) {
+            flag = false;
+            break;
+          }
+        }
+        return flag;
+      }
+      if(!IsPC()){
+        var url = window.location.href;
+        var index = url.lastIndexOf("\/");
+        str = url.substring(index + 1,url.length);
+        if(str != 'index_m.html'){
+          window.location.href = 'http://guomiaotang.cn/index_m.html';
+        }
+      }
+      //全局变量
+      var GV = {
+          ROOT: "/",
+          WEB_ROOT: "/",
+          JS_ROOT: "statics/js/"
+      };
+    </script>
+    <script src="statics/js/wind.js"></script>
+    <style>
+      body, html {
+        overflow: auto;
+      }
+      .in2 .bg {
+        padding-bottom: 300px;
+        height: auto;
+      }
+      .mb-10{
+        margin-bottom: 10px;
+      }
+      .mb-50{
+        margin-bottom: 50px;
+      }
+      .con {
+        margin:0 auto;
+        padding-top: 50px;
+        width: 1200px;
+      }
+      .title-page {
+        margin-bottom: 0px;
+        width: 100%;
+        height: 112px;
+        line-height: 112px;
+        color: #9C2227;
+        font-size: 28px;
+        font-weight: bold
+      }
+      .con-txt {
+        padding-top: 50px;
+      }
+      .con-txt li {
+        margin-bottom: 80px;
+      }
+      .pic {
+        width: 300px;
+      }
+      .right {
+        width: 800px;
+        font-size: 16px;
+        line-height: 30px;
+      }
+
+      .title {
+        width: 100%;
+        font-size: 20px;
+        color: #9c2227;
+        height: 50px;
+        line-height: 30px;
+        font-weight: bold;
+      }
+      .subtitle {
+        padding-left: 20px;
+        font-size: 16px;
+        font-weight: normal;
+      }
+      .name {
+        padding-right: 10px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+    </style>
+    
+</head>
+  
+  <body>
+    <!-- 头部  导航 -->
+    <div class="header">
+      <div class="header_ch clearfix">
+        <a class="logo fl" href="/"></a>
+        <ul class="nav fr clearfix">
+          <li class="">
+            <a class="bg" class="" href="index.html" target="">首页</a>
+          </li>
+          <li class="">
+            <a href="about_me.html" target="">关于我们</a>
+          </li>
+          <li class="">
+            <a  href="answer.html" target="">QA解答</a>
+          </li>
+          <li class="">
+            <a  href="contact_us.html" target="">联系我们</a>
+          </li>
+        </ul>
+      </div>
+    </div> 
+    <!-- banner 区域 -->
+    <!--content 内容区域  -->
+    <div class="in_z in2">
+      <div class="bg">
+        <div class="con">
+          <p class="title-page js_title">应用案例</p>
+          <ul class="con-txt mb-50 js_con">
+            <!-- <li class="item clearfix">
+              <div class="fl pic">
+                <img src="statics/images/anli/1.png" alt="">
+              </div>
+              <div class="fr right">
+                <p class="title">肝病案例<span class="subtitle">两个服用月熊胆粉，肝癌患者肝病症状消失，患者视熊胆粉为“宝贝”</span></p>
+                <p><span class="name">李春华，男，北京人，北京的退休干部</span>每年在医院的时间比在家还多，但女儿说，这几年，李老的身体发生了翻天覆地的变化。老先生原来有近20年的肝硬化病史，三年前肝癌进入晚期，经住院救治后身体素质急剧下降，转氨酶非常高，血压高150/低110，肝区疼痛，晨起自汗、身体手足易冷、足底发肿、失眠严重，经常头晕头痛，可是老先生喝了熊胆粉不到15天，自己下床出门去遛弯，停服了好几种西药。60天后血压平稳，乏力、消瘦、疲劳、食欲不振、厌油、腹胀、恶心、肝区疼痛、口干口苦、尿黄、脸色黄、眼睛黄这些肝病症状也全没了。现在李老先生把熊胆当成了宝贝，天天喝，一天也不愿意停</p>
+              </div>
+            </li>
+            <li class="item clearfix">           
+              <div class="fl right">
+                <p>每年在医院的时间比在家还多，但女儿说，这几年，李老的身体发生了翻天覆地的变化。老先生原来有近20年的肝硬化病史，三年前肝癌进入晚期，经住院救治后身体素质急剧下降，转氨酶非常高，血压高150/低110，肝区疼痛，晨起自汗、身体手足易冷、足底发肿、失眠严重，经常头晕头痛，可是老先生喝了熊胆粉不到15天，自己下床出门去遛弯，停服了好几种西药。60天后血压平稳，乏力、消瘦、疲劳、食欲不振、厌油、腹胀、恶心、肝区疼痛、口干口苦、尿黄、脸色黄、眼睛黄这些肝病症状也全没了。现在李老先生把熊胆当成了宝贝，天天喝，一天也不愿意停</p>
+              </div>
+              <div class="fr pic">
+                <img src="statics/images/anli/1.png" alt="">
+              </div>
+            </li> -->
+          </ul>
+        </div>
+      </div>
+      
+	</div>
+	
+      <!--footer 底部  -->
+      
+		
+    </body>
+    <script src="statics/js/admin.js"></script>
+    <script>
+        $(function(){
+          $.ajax({
+            //请求方式为get
+            type:"GET",
+            //json文件位置
+            url:"statics/js/example.json?timestamp=" + new Date().getTime(),
+            //返回数据格式为json
+            dataType: "json",
+            crossDomain: true,
+            cache : false,
+            //请求成功完成后要执行的方法
+            success: function(result){
+              var data = result.data;             
+
+              var str = "";
+              $.each(data, function(index, val){
+                console.log(val)
+                if((index%2)==0){
+                  str += "<li class=\"item clearfix\">\
+                          <div class=\"fl pic\">\
+                              <img src=\""+ val.pic +"\" alt=\"\">\
+                          </div>\
+                          <div class=\"fr right\">\
+                            <p class=\"title\">"+ val.title +"<span class=\"subtitle\">"+ val.subtitle +"</span></p>\
+                            <p><span class=\"name\">"+ val.name +"</span>"+ val.str +"</p>\
+                          </div>\
+                        </li>"
+                } else {
+                  str += "<li class=\"item clearfix\">\
+                          <div class=\"fl right\">\
+                            <p class=\"title\">"+ val.title +"<span class=\"subtitle\">"+ val.subtitle +"</span></p>\
+                            <p><span class=\"name\">"+ val.name +"</span>"+ val.str +"</p>\
+                          </div>\
+                          <div class=\"fr pic\">\
+                              <img src=\""+ val.pic +"\" alt=\"\">\
+                          </div>\
+                        </li>"
+                }
+                
+              })
+              $(".js_con").html(str)
+            }
+          })
+        })
+      </script>
+</html>
