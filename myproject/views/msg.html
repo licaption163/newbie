@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>
+    提示消息
+  </title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="stylesheet" href="/static/bg/css/x-admin.css" media="all">
+</head>
+<body>
+<div class="x-body">
+  <blockquote class="layui-elem-quote">
+    <dl style="margin-left:80px; color:#019688">
+      <dt><span>{{.msg}}</span></dt>
+    </dl>
+  </blockquote>
+  <div>{{str2html .url}}</div>
+</div>
+</body>
+</html>

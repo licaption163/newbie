@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>
+        会员列表
+    </title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="/static/bg/css/x-admin.css" media="all">
+</head>
+<body>
+<div class="x-body">
+    <xblock><bu><a class="layui-btn" href="/xdf/list/excel">导出会员数据(excel)</a></bu></xblock>
+    <table class="layui-table">
+        <thead><tr>
+        <th>序号</th>
+        <th>姓名</th>
+        <th>手机号</th>
+        <th>生日</th>
+        <th>年龄</th>
+        <th>性别</th>
+        <th>地址</th>
+        <th>用途</th>
+        <th>注册时间</th>
+        </tr></thead>
+        <tbody>
+    {{range $index,$ele := .list}}
+        <tr>
+            <td>{{$ele.Id}}</td>
+            <td>{{$ele.Name}}</td>
+            <td>{{$ele.Phone}}</td>
+            <td>{{$ele.Birthday}}</td>
+            <td>{{$ele.Age}}</td>
+            <td>{{$ele.Sex}}</td>
+            <td>{{$ele.Area}}</td>
+            <td>{{$ele.Purpose}}</td>
+            <td>{{$ele.CreateTime}}</td>
+        </tr>
+    {{end}}
+        </tbody>
+</table>
+    <div>{{str2html .page}}</div>
+</div>
+
+</body>
+</html>

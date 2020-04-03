@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>国妙堂尊享会员登记表</title>
+    <meta name="keywords" content="国妙堂尊享会员登记表">
+    <meta name="description" content="国妙堂尊享会员登记表"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <link rel="stylesheet" href="/static/css/weui.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/jquery-weui/1.2.1/css/jquery-weui.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/user.css?v=102501">
+    <script type="text/javascript" src="/static/js/rem.js"></script>
+</head>
+<body class="hide">
+<H1>国妙堂尊享会员登记表</H1>
+<div class="wrapper">
+    <div class="weui-form__control-area">
+        <div class="weui-cells__group weui-cells__group_form">
+            <div class="weui-cells weui-cells_form">
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">姓名<i class="col-red">*</i></label></div>
+                    <div class="weui-cell__bd">
+                        <input id="js_input" autofocus="" class="weui-input" placeholder=""/>
+                    </div>
+                </div>
+                <div class="weui-cell">
+                    <i class="icon icon-down"></i>
+                    <div class="weui-cell__hd"><label class="weui-label">性别<i class="col-red">*</i></label></div>
+                    <div class="weui-cell__bd" id="showSex"></div>
+                </div>
+                <div class="weui-cell" id="showDatePicker">
+                    <i class="icon icon-down"></i>
+                    <div class="weui-cell__hd"><label class="weui-label">生日<i class="col-red">*</i></label></div>
+                    <div class="weui-cell__bd" id="cal_age"></div>
+                </div>
+
+                <div class="weui-cell">
+                    <i class="icon icon-down"></i>
+                    <div class="weui-cell__hd"><label class="weui-label">所在地区<i class="col-red">*</i></label></div>
+                    <div class="weui-cell__bd">
+                        <input id="city-picker" class="weui-input adress" placeholder="" type="text"/>
+                    </div>
+                </div>
+                {{/*<div class="weui-cell">*/}}
+                    {{/*<div class="weui-cell__hd"><label class="weui-label">详细地址<i class="col-red">*</i></label></div>*/}}
+                    {{/*<div class="weui-cell__bd">*/}}
+                        {{/*<input id="detail" class="weui-input" placeholder="" type="text" />*/}}
+                    {{/*</div>*/}}
+                {{/*</div>*/}}
+                <div class="weui-cell">
+                    <i class="icon icon-down"></i>
+                    <div class="weui-cell__hd"><label class="weui-label">购买用途<i class="col-red">*</i></label></div>
+                    <div class="weui-cell__bd" id="showPicker"></div>
+                </div>
+                <div class="weui-cell">
+                    <div class="weui-cell__hd"><label class="weui-label">联系方式<i class="col-red">*</i></label></div>
+                    <div class="weui-cell__bd">
+                        <input id="js_phone" class="weui-input" placeholder="手机号(11位)" type="number" pattern="[0-9]*"/>
+                    </div>
+                </div>
+                <div class="weui-cell weui-cell_vcode">
+                    <div class="weui-cell__hd"><label class="weui-label">验证码</label></div>
+                    <div class="weui-cell__bd reg-code">
+                        <input class="weui-input" type="text" pattern="[0-9]*" id="js_code" placeholder="输入验证码" maxlength="6">
+                    </div>
+                    <div class="weui-cell__ft">
+                        <button class="weui-btn weui-btn_default weui-vcode-btn js_get_code" data-status="true">获取</button>
+                    </div>
+                </div>
+                <input name="xsrf" type="hidden" value="{{.xsrf}}"/>
+                <input name="pa" type="hidden" value="{{.paccount}}"/>
+                <input name="rand" type="hidden" value="{{.rand}}"/>
+            </div>
+        </div>
+    </div>
+
+    <!-- 提交按钮 -->
+    <button class="weui-btn weui-btn_primary sub-btn">提交</button>
+</div>
+
+<!-- 错误提示框 -->
+<div class="weui-toast" style="display: none">
+    <i class="weui-icon-warn weui-icon_msg"></i>
+    <p class="weui-toast__content"></p>
+</div>
+
+<!-- 提交成功弹框 -->
+<div id="dialogs">
+    <!--BEGIN dialog1-->
+    <div class="js_dialog" id="iosDialog1">
+        <div class="weui-mask"></div>
+        <div class="weui-dialog">
+            <img class="icon-left" src="/static/images/icon_left.png" alt="">
+            <img class="icon-right" src="/static/images/icon_right.png" alt="">
+            <div class="weui-dialog__hd"><strong class="weui-dialog__title">恭喜您</strong></div>
+            <div class="weui-dialog__bd">恭喜您成为国妙堂尊享会员！</div>
+            <div class="weui-dialog__ft">
+                <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default"></a>
+                <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default btn-close">我知道了</a>
+                <a href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default"></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--END dialog1-->
+
+<script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://res.wx.qq.com/open/libs/weuijs/1.2.1/weui.min.js"></script>
+<script src="https://cdn.staticfile.org/jquery-weui/1.2.1/js/jquery-weui.min.js"></script>
+<script src="https://cdn.staticfile.org/jquery-weui/1.2.1/js/city-picker.min.js"></script>
+
+<script>
+    $(function () {
+        // 短信验证码
+        var time = 60;
+        var flag = true;   //设置点击标记，防止60内再次点击生效
+        var $toast = $('.weui-toast');
+
+        $(".js_get_code").click(function(){
+            var that = $(this);
+            var phone = $('#js_phone').val();
+            if(phone == '' || phone.length!=11){
+                $toast.addClass("active").show().find("p").html("请检查手机号码是否输入正确");
+                setTimeout(function () {
+                    $toast.hide();
+                }, 1000);
+                $('#js_phone').focus();
+                return
+            }
+
+            if(flag) {
+                // 倒计时已完成，或者第一次，可以获取
+                that.addClass("active").html(time+"s");
+
+                if(time == 60 && flag){
+                    flag = false;
+
+                    // 获取短信
+                    $.ajax({
+                        type : 'post',
+                        async : false,
+                        url : '/xdf/join/send',
+                        data : {
+                            "phone" : phone,
+                            "rand": $("input[name='rand']").val()
+                        },
+                        dataType:"json",
+                        success : function(data) {
+                            if(data.status == 0){
+                                $toast.addClass("active").show().find("p").html(data.msg);
+                                setTimeout(function () {
+                                    $toast.hide();
+                                }, 1000);
+                                $('#js_code').focus();
+                                var timer = setInterval(function () {
+                                    if(time == 0) {
+                                        that.html("获取").removeClass("active");
+                                        clearInterval(timer);
+                                        time = 60;
+                                        flag = true;
+                                    } else {
+                                        time--;
+                                        that.html(time + "s");
+                                    }
+                                },1000);
+                            }else {
+                                that.html("获取").removeClass("active");
+                                $toast.addClass("active").show().find("p").html(data.msg);
+                                setTimeout(function () {
+                                    $toast.hide();
+                                }, 1000);
+                                flag = true;
+                                time = 60;
+                                clearInterval(timer);
+                            }
+                        }
+                    });
+                }
+            }
+        })
+
+        $("body").removeClass("hide")
+        var fs = document.documentElement.clientWidth/375*100;
+        $("body,html").css("cssText", "font-size:"+ fs+"px !important")
+
+
+        // 清空地址
+        $(".js_del").click(function () {
+            $("#adress").val("")
+        })
+        $("#city-picker").cityPicker({
+            title: "请选择收货地址"
+        });
+
+        // 生日
+        $('#showDatePicker').on('click', function () {
+            weui.datePicker({
+                start: 1930,
+                end: new Date().getFullYear() - 1,
+                onChange: function (result) {
+                    // console.log(result);
+                },
+                onConfirm: function (result) {
+                    var ds = "";
+                    for (d in result) {
+                        ds += result[d].label;
+                    }
+                    $("#cal_age").html(ds);
+                },
+                title: '出生日期'
+            });
+        });
+        // 购买用途
+        $("#showPicker").on('click', function () {
+            var that = $(this);
+            weui.picker([{
+                label: '自用',
+                value: '自用'
+            }, {
+                label: '送礼',
+                value: '送礼'
+            }], {
+                onChange: function (result) {
+                    // console.log(result);
+                },
+                onConfirm: function (result) {
+                    // console.log(result);
+                    that.html(result[0].label)
+                },
+                title: '购买用途'
+            });
+        });
+        $("#showSex").on('click', function () {
+            var that = $(this);
+            weui.picker([{
+                label: '男',
+                value: '男'
+            }, {
+                label: '女',
+                value: '女'
+            }], {
+                onChange: function (result) {
+                    // console.log(result);
+                },
+                onConfirm: function (result) {
+                    // console.log(result);
+                    that.html(result[0].label)
+                },
+                title: '性别'
+            });
+        });
+
+        function clear() {
+            $('#js_input').val('');
+            $('#showSex').html('');
+            $('#cal_age').html('');
+            $('#js_phone').val('');
+            $('#city-picker').val('');
+            $('#showPicker').html('');
+            $("input[name='pa']").val('');
+            $('#js_code').val('');
+        }
+
+        // 错误提示框
+        $('.sub-btn').on('click', function () {
+            var $toast = $('.weui-toast');
+
+            var name = $('#js_input').val();
+            var sex = $('#showSex').html();
+            var age = $('#cal_age').html();
+            var phone = $('#js_phone').val();
+            var area = $('#city-picker').val();
+            var purpose = $('#showPicker').html();
+            var code = $('#js_code').val();
+
+            if (name == "" || name.length < 2) {
+                if ($toast.css('display') != 'none') return;
+                $toast.addClass("active").show().find("p").html("姓名最少2个字");
+                $('#js_input').focus();
+                setTimeout(function () {
+                    $toast.hide();
+                }, 1000);
+            } else if (sex.length == 0) {
+                if ($toast.css('display') != 'none') return;
+                $toast.addClass("active").show().find("p").html("请选择性别");
+                setTimeout(function () {
+                    $toast.hide();
+                }, 1000);
+            } else if (age == "") {
+                if ($toast.css('display') != 'none') return;
+                $toast.addClass("active").show().find("p").html("请选择生日");
+                setTimeout(function () {
+                    $toast.hide();
+                }, 1000);
+            } else if (phone == "" || phone.length != 11) {
+                if ($toast.css('display') != 'none') return;
+                $toast.addClass("active").show().find("p").html("请输入联系方式(11位手机号)");
+                $('#js_phone').focus();
+                setTimeout(function () {
+                    $toast.hide();
+                }, 1000);
+            } else if (area == "") {
+                if ($toast.css('display') != 'none') return;
+                $toast.addClass("active").show().find("p").html("请选择所在地区");
+                setTimeout(function () {
+                    $toast.hide();
+                }, 1000);
+            } else if (purpose == "") {
+                if ($toast.css('display') != 'none') return;
+                $toast.addClass("active").show().find("p").html("请选择购买用途");
+                setTimeout(function () {
+                    $toast.hide();
+                }, 1000);
+            } else if (code == "") {
+                if ($toast.css('display') != 'none') return;
+                $toast.addClass("active").show().find("p").html("验证码不能为空");
+                setTimeout(function () {
+                    $toast.hide();
+                }, 1000);
+            } else {
+                var ret = /1[^0-2][0-9]{9,9}$/;
+                if (!ret.test(phone)) {
+                    if ($toast.css('display') != 'none') return;
+                    $toast.addClass("active").show().find("p").html("请检查手机号");
+                    $('#js_phone').focus();
+                    setTimeout(function () {
+                        $toast.hide();
+                    }, 1000);
+                } else {
+                    $.ajax({
+                        url: "/xdf/join",
+                        type: "post",
+                        data: {
+                            "name": name,
+                            "sex": sex,
+                            "age": age,
+                            "phone": phone,
+                            "area": area,
+                            "purpose": purpose,
+                            "xsrf": $("input[name='xsrf']").val(),
+                            "pa": $("input[name='pa']").val(),
+                            "code": code,
+                        },
+                        dataType: "json",
+                        success: function (result) {
+                            clear();
+                            if (result.code == 1) {
+                                $(".weui-mask").addClass("active");
+                                $('#iosDialog1').fadeIn(200).find(".weui-dialog").addClass("active")
+                            } else if (result.code == 2) {
+                                $toast.addClass("active").show().find("p").html(result.message);
+                                setTimeout(function () {
+                                    $toast.hide();
+                                }, 1000);
+                            }
+                        }
+                    })
+                }
+            }
+        });
+
+        // 关闭弹框
+        $('#dialogs').on('click', '.weui-dialog__btn', function(){
+            $(this).parents('.js_dialog').fadeOut(200);
+            $(".weui-mask").removeClass("active")
+            location.reload(true)
+        });
+
+    })
+</script>
+</body>
+</html>

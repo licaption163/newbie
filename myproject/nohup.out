@@ -1,0 +1,16 @@
+2020/02/08 13:39:51.165 [1;34m[I][0m [asm_amd64.s:1357]  http server Running on http://127.0.0.1:8080
+2020/02/08 13:39:57.004 [1;44m[D][0m [server.go:2802]  |      127.0.0.1|[97;42m 200 [0m|   1.220377ms|   match|[97;44m GET     [0m /xdf/login   r:/xdf/login
+2020/02/08 13:39:57.533 [1;44m[D][0m [server.go:2802]  |      127.0.0.1|[97;42m 200 [0m|    474.418µs|   match|[97;44m GET     [0m /xdf/login   r:/xdf/login
+2020/02/08 13:39:57.782 [1;44m[D][0m [server.go:2802]  |      127.0.0.1|[97;42m 200 [0m|    454.321µs|   match|[97;44m GET     [0m /xdf/login   r:/xdf/login
+2020/02/08 13:40:17.272 [1;44m[D][0m [server.go:2802]  |      127.0.0.1|[97;42m 200 [0m|    618.706µs|   match|[97;44m GET     [0m /xdf/login   r:/xdf/login
+2020/02/08 13:40:17.803 [1;44m[D][0m [server.go:2802]  |      127.0.0.1|[97;42m 200 [0m|    464.823µs|   match|[97;44m GET     [0m /xdf/login   r:/xdf/login
+2020/02/08 13:40:18.082 [1;44m[D][0m [server.go:2802]  |      127.0.0.1|[97;42m 200 [0m|    506.067µs|   match|[97;44m GET     [0m /xdf/login   r:/xdf/login
+2020/02/08 13:40:18.341 [1;44m[D][0m [server.go:2802]  |      127.0.0.1|[97;42m 200 [0m|    417.869µs|   match|[97;44m GET     [0m /xdf/login   r:/xdf/login
+2020/02/08 13:40:18.618 [1;44m[D][0m [server.go:2802]  |      127.0.0.1|[97;42m 200 [0m|    457.394µs|   match|[97;44m GET     [0m /xdf/login   r:/xdf/login
+2020/02/08 13:40:18.857 [1;44m[D][0m [server.go:2802]  |      127.0.0.1|[97;42m 200 [0m|    463.923µs|   match|[97;44m GET     [0m /xdf/login   r:/xdf/login
+2020/02/08 13:40:19.090 [1;44m[D][0m [server.go:2802]  |      127.0.0.1|[97;42m 200 [0m|     443.09µs|   match|[97;44m GET     [0m /xdf/login   r:/xdf/login
+2020/02/08 13:40:19.361 [1;44m[D][0m [server.go:2802]  |      127.0.0.1|[97;42m 200 [0m|    423.458µs|   match|[97;44m GET     [0m /xdf/login   r:/xdf/login
+2020/02/08 13:40:19.607 [1;44m[D][0m [server.go:2802]  |      127.0.0.1|[97;42m 200 [0m|    445.851µs|   match|[97;44m GET     [0m /xdf/login   r:/xdf/login
+2020/02/08 13:42:08.465 [1;44m[D][0m [server.go:2802]  |      127.0.0.1|[97;42m 200 [0m|     952.34µs|   match|[97;44m GET     [0m /xdf/login   r:/xdf/login
+2020/02/08 13:42:09.721 [1;44m[D][0m [server.go:2802]  |      127.0.0.1|[97;42m 200 [0m|    432.179µs|   match|[97;44m GET     [0m /xdf/login   r:/xdf/login
+2020/02/08 13:42:10.413 [1;44m[D][0m [server.go:2802]  |      127.0.0.1|[97;42m 200 [0m|    433.039µs|   match|[97;44m GET     [0m /xdf/login   r:/xdf/login

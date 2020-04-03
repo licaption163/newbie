@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>
+        查看管理员
+    </title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="/static/bg/css/x-admin.css" media="all">
+</head>
+<body>
+<div class="x-body">
+    <div class="pd-20">
+        <table  class="layui-table" lay-skin="line">
+            <tbody>
+            <tr>
+                <th  width="80">账号：</th>
+                <td>{{.admin.Account}}</td>
+            </tr>
+            <tr>
+                <th>创建时间：</th>
+                <td>{{.admin.CreateTime}}</td>
+            </tr>
+            <tr>
+                <th>备注：</th>
+                <td>{{.admin.Memo}}</td>
+            </tr>
+            <tr>
+                <th>二维码：</th>
+                <td><img src="/static/img/ewm/{{.admin.Account}}.png"/><br/>分享二维码，获取会员{{if .bgup}}，您还可以为二维码<a href="/xdf/admin/make" class="layui-btn">添加个背景图片</a>{{else}}。如果还想为二维码设计个漂亮的背景，请联系我们{{end}}</td>
+            </tr>
+            {{if .bgewm}}
+                <tr>
+                    <th>有背景的二维码：</th>
+                    <td><img style="width: 200px;height:300px;" src="/static/img/ewm/{{.admin.Account}}_b.png"/></td>
+                </tr>
+            {{end}}
+            <tr><th colspan="2">
+                    <label for="L_repass" class="layui-form-label">
+                        <a href="/xdf/admin">返回</a>
+                    </label>
+                </th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
